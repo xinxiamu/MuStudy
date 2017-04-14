@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;yingmu.com&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/yingmu.com" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/webdemo" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/qor" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/myapp" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/hello" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/iris-study" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/golang.org" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/yingmu.com" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/github.com" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/webdemo" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/qor" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/gopkg.in" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/myapp" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/hello" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/iris-study" />
+      <root url="file://$PROJECT_DIR$/../../../../../golang/work/src/golang.org" />
+    </SOURCES>
+    <excluded>
+      <root url="file://$PROJECT_DIR$" />
+    </excluded>
+  </library>
+</component>
