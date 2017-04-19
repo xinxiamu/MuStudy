@@ -1,0 +1,4 @@
+{
+	"controllerPackage": "controller","viewPath": "/WEB-INF/views/","controllerSuffixes": "Action","themes":"default"	
+	
+ }

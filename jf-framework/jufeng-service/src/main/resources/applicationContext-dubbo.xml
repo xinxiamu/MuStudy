@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+			 		    
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="ServiceProvider" />
+    <!-- 使用注解方式暴露接口 -->     
+    <dubbo:annotation package="co.jufeng.service.*" />  
+    <!-- 用dubbo协议在20880端口暴露服务 -->  
+	<dubbo:protocol name="dubbo" port="${dubbo.port}" host="${dubbo.host}" />
+    
+<!-- 使用multicast广播注册中心暴露服务地址 -->
+<!-- <dubbo:registry address="multicast://224.5.6.7:1234" />   -->
+<!-- <dubbo:registry address="${zookeeper.address}"></dubbo:registry> -->
+    
+    <!-- 使用zookeeper注册中心暴露服务地址  --> 
+<!-- 	<dubbo:registry address="${zookeeper.address}" /> -->
+	
+	
+	
+    <!-- 多注册中心配置 -->
+<!--     <dubbo:registry id="qd_registry" address="zookeeper://192.168.0.111:2182" /> -->
+<!--     <dubbo:registry id="wh_registry" address="zookeeper://120.77.54.92:2182"  /> -->
+
+	<dubbo:registry protocol="zookeeper" address="120.24.66.161:2191,112.74.131.203:2191,120.24.152.53:2191" />
+	
+
+
+<!-- 		<dubbo:registry address="zookeeper://120.77.54.92:2182?backup=192.168.0.111:2182" /> -->
+	
+      
+    <!-- 服务提供者过期时间配置, 延迟到Spring初始化完成后，再暴露服务,服务调用超时设置为10秒,超时不重试-->    
+    <dubbo:provider delay="-1" timeout="10000" retries="0"/>  
+	
+	<!-- 声明需要暴露的服务接口 -->  
+<!-- 	<dubbo:service interface="co.jufeng.api.user.IUserService" ref="userService" registry="qd_registry,wh_registry"/> -->
+<!-- 	<dubbo:service interface="co.jufeng.api.user.IUserService" ref="userService" version="1.0.0"/> -->
+	<dubbo:service interface="co.jufeng.api.IHelloWorldService" ref="helloWorldService" />
+	<dubbo:service interface="co.jufeng.api.user.IUserService" ref="userService" />
+	<dubbo:service interface="co.jufeng.api.user.IApplicationService" ref="applicationService" />
+	<dubbo:service interface="co.jufeng.api.user.IApiAuthorizedService" ref="apiAuthorizedService" />
+	
+</beans>

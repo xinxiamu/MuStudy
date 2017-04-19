@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+    
+	<bean id="springBeanFactory" class="co.jufeng.core.factory.SpringBeanFactory"></bean>
+	<bean class="co.jufeng.core.factory.PropertiesFactory">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:dubbo.properties</value>
+			</list>
+		</property>
+	</bean>
+	<dubbo:application name="ServiceConsumer" />
+	<dubbo:protocol name="dubbo" host="${dubbo.host}" port="${dubbo.port}" />
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+<!-- 	<dubbo:registry protocol="zookeeper" address="${zookeeper.address}" /> -->
+	<dubbo:registry protocol="zookeeper" address="120.24.66.161:2191,112.74.131.203:2191,120.24.152.53:2191" />
+	
+	
+</beans>

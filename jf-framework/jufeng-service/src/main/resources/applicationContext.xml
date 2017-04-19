@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    					http://www.springframework.org/schema/beans/spring-beans-4.3.xsd ">
+
+	<import resource="applicationContext-config.xml" />
+	<import resource="applicationContext-dataSource.xml" />
+	<import resource="applicationContext-mysql.xml" />
+	<import resource="applicationContext-redis.xml" />
+	<import resource="applicationContext-hibernate.xml" />
+	<import resource="applicationContext-dubbo.xml" />
+
+</beans>

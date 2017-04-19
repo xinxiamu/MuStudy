@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- 配置数据源 -->
+    <!-- <bean id="dataSourceRead" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" 
+        p:driverClass="${jdbc.read.driverClassName}"
+        p:jdbcUrl="${jdbc.read.url}" 
+        p:user="${jdbc.read.username}" 
+        p:password="${jdbc.read.password}"
+        p:testConnectionOnCheckout="false"
+        p:testConnectionOnCheckin="true"
+        p:idleConnectionTestPeriod="3600"
+        p:initialPoolSize="10" 
+        p:minPoolSize="10"
+        p:maxPoolSize="100" 
+        p:maxIdleTime="3600" /> -->
+        
+    <bean id="callback" class="co.jufeng.accessor.DBPasswordCallback" lazy-init="true" />
+    
+    
+   	<bean id="dataSourceRead" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="url" value="${jdbc.read.url}" />
+		<property name="username" value="${jdbc.read.username}" />
+		<property name="password" value="${jdbc.read.password}" />
+		<property name="driverClassName" value="${jdbc.read.driverClassName}"></property>
+		<property name="initialSize" value="1" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="20" />
+		<property name="maxWait" value="60000" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="connectionProperties" value="password=${jdbc.read.password}" />
+		<property name="passwordCallback" ref="callback" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+		<property name="filters" value="stat" />
+	</bean>
+	
+    
+   	<bean id="dataSourceWrite" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+		<property name="url" value="${jdbc.write.url}" />
+		<property name="username" value="${jdbc.write.username}" />
+		<property name="password" value="${jdbc.write.password}" />
+		<property name="driverClassName" value="${jdbc.write.driverClassName}"></property>
+		<property name="initialSize" value="1" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="20" />
+		<property name="maxWait" value="60000" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="connectionProperties" value="password=${jdbc.write.password}" />
+		<property name="passwordCallback" ref="callback" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+		<property name="filters" value="stat" />
+	</bean>
+	
+	
+	
+</beans>
