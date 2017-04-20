@@ -1,0 +1,7 @@
+/**
+ * 
+ */
+
+function index(){
+	alert("-----------aaaaaaaa");
+}

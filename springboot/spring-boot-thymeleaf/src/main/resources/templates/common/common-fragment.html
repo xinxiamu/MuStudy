@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="pager">
+    fragment:让我来处理分页
+</div>
+
+<div th:fragment="hint">
+    fragment:我来提示你,<span th:text="${user.name}"></span>
+</div>
+<!--片段参数-->
+<div th:fragment="top(one,two)">
+    <p th:text="${one} + '-' + ${two}"></p>
+    <P th:text="${user.age}"></P>
+    <p th:text="${one}"></p>
+</div>
+
+<!--th:with换变量别名-->
+<div th:fragment="withdemo" th:with="onevar=${user.name},twovar=${host}">
+    ----------------------------------------------
+    <p th:text="${onevar}">th:with测试</p>
+    <p th:text="${twovar}"></p>
+</div>
+</body>
+</html>
