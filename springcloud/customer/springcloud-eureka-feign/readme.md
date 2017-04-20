@@ -1,0 +1,4 @@
+# 消费服务。采用Feign，像调用本地方法一样调用服务。
+# Feign已经依赖入ribbon,能负载均衡的调用服务。
+# Feign是一个声明式的Web Service客户端，它使得编写Web Serivce客户端变得更加简单。我们只需要使用Feign来创建一个接口并用注解来配置它既可完成。它具备可插拔的注解支持，包括Feign注解和JAX-RS注解。Feign也支持可插拔的编码器和解码器。Spring Cloud为Feign增加了对Spring MVC注解的支持，还整合了Ribbon和Eureka来提供均衡负载的HTTP客户端实现。
+# Feign中已经自动引入断路器。不用做任何配置修改，只需学习如何使用Feign中集成的Hystrix。
