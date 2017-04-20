@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Reference Manual http://logback.qos.ch/manual/index.html -->
+
+<configuration>
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<property name="LOG_HOME" value="../logs/Logisticts-server-app/" />
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8"> <!-- encoder 可以指定字符集，对于中文输出有意义 -->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level
+				%logger-accesser - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="RollingFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>TRACE</level>
+		</filter>
+
+		<!-- 可让每天产生一个日志文件，最多 10 个，自动回滚 <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> 
+			<fileNamePattern>d:/log/Unmi-%d{yyyy-MM-dd}.log</fileNamePattern> TestWeb.log.%d{yyyy-MM-dd}.log 
+			<maxHistory>10</maxHistory> </rollingPolicy> -->
+
+		<!-- 下面这段注释的代码可以在日志文件超过 5MB 时进行归档，并且归档文件后缀只要是 .zip 或 .gz 就会自动压缩日志归档 -->
+		<file>${LOG_HOME}logger-accesser.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/logger-accesser.%i.log.zip
+			</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>10</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>3MB</maxFileSize>
+		</triggeringPolicy>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level
+				%logger-accesser - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 输出到控制台和文件，可定义更多的 Appender -->
+
+	<root level="WARN">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="RollingFile" />
+		<!-- <appender-ref ref="stdout" /> <appender-ref ref="logfile" /> <appender-ref 
+			ref="ROLLING" /> -->
+	</root>
+
+
+	<!-- 本项目 -->
+	<logger name="com" level="DEBUG" />
+
+	<!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+
+	<logger name="org.hibernate" level="WARN" />
+	<logger name="org.springframework" level="WARN" />
+	<logger name="com.opensymphony" level="WARN" />
+	<logger name="org.apache" level="WARN" />
+
+	<logger name="org.springframework" level="DEBUG" />
+	<logger name="com.opensymphony" level="DEBUG" />
+	<logger name="org.apache" level="DEBUG" />
+
+	<!-- show parameters for hibernate sql 专为 Hibernate 定制 -->
+	<logger name="org.hibernate.type.descriptor.sql.BasicBinder"
+		level="TRACE" />
+	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor"
+		level="DEBUG" />
+	<logger name="org.hibernate.engine.QueryParameters" level="DEBUG" />
+	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />
+
+
+	<logger name="org.hibernate.SQL" level="DEBUG" />			<!-- 在所有SQL DML语句被执行时为它们记录日志 -->
+	<logger name="org.hibernate.type" level="DEBUG" />			<!-- 为所有JDBC参数记录日志 -->
+	<logger name="org.hibernate.tool.hbm2ddl" level="DEBUG" />	<!-- 在所有SQL DDL语句执行时为它们记录日志 -->
+	<logger name="org.hibernate.pretty" level="DEBUG" />			<!-- 在session清洗(flush)时，为所有与其关联的实体(最多20个)的状态记录日志 -->
+	<logger name="org.hibernate.cache" level="DEBUG" />			<!-- 为所有二级缓存的活动记录日志 -->
+	<logger name="org.hibernate.transaction" level="DEBUG" />	<!-- 为事务相关的活动记录日志 -->
+	<logger name="org.hibernate.jdbc" level="DEBUG" />			<!-- 为所有JDBC资源的获取记录日志 -->
+	<logger name="org.hibernate.hql.AST" level="DEBUG" />		<!-- 在解析查询的时候,记录HQL和SQL的AST分析日志 -->
+	<logger name="org.hibernate.secure" level="DEBUG" />			<!-- 为JAAS认证请求做日志 -->
+	<logger name="org.hibernate" level="DEBUG" />				<!-- 为任何Hibernate相关信息做日志 (信息量较大, 但对查错非常有帮助) -->
+
+</configuration>

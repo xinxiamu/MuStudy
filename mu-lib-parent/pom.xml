@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mu</groupId>
+	<artifactId>mu-lib-parent</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>mu-lib-parent</name>
+	<description>父项目</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.0.RELEASE</spring.version>
+		<jodd.version>3.6.6</jodd.version>
+	</properties>
+
+	<!-- 发布 -->
+	<!-- <distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Human Readable Name for this Mirror.snapshots</name>
+			<url>http://59.41.60.154:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Human Readable Name for this Mirror.releases</name>
+			<url>http://59.41.60.154:8081/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement> -->
+
+	<modules>
+		<module>mu-lib-persist</module>
+		<module>mu-lib-cache</module>
+		<module>mu-lib-mvc</module>
+		<module>mu-lib-utils</module>
+		<module>mu-dao-mongoDB</module>
+		<module>mu-cache-J2Cache</module>
+	</modules>
+
+	<dependencies>
+		<!--//////////////////// Spring框架 //////////////////////// -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!--///////// 测试框架 ///////////////// -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
+
+		<!--///////////////////// 日志系统 ///////////////////// -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.1</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.java</include>
+				</includes>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<!-- 生成源码插件，过滤掉一些依赖包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-rar-plugin</artifactId> 
+				<version>2.2</version> <executions> <execution> <phase>package</phase> <goals> 
+				<goal>rar</goal> </goals> </execution> </executions> </plugin> -->
+
+			<!-- 生成javadoc插件，过滤掉一些依赖包。build命令：javadoc:javadoc -->
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin> -->
+
+		</plugins>
+	</build>
+
+</project>

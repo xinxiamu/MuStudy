@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mu</groupId>
+	<artifactId>Logistics-parent</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>Logistics-parent</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.0.RELEASE</spring.version>
+		<mu.lib.version>0.0.1</mu.lib.version>
+		<mu.lib.groupId>com.mu</mu.lib.groupId>
+	</properties>
+
+	<!-- 子模块 -->
+	<modules>
+		<module>Logistics-model</module>
+		<module>Logistics-persist</module>
+		<module>Logistics-core</module>
+		<module>Logistics-server-app</module>
+		<module>Logistics-server-back</module>
+		<module>Logistics-server-web</module>
+		<module>Logistics-service</module>
+	</modules>
+
+	<build>
+		<!-- <sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.java</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</testResource>
+		</testResources> -->
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>${mu.lib.groupId}</groupId>
+			<artifactId>mu-lib-mvc</artifactId>
+			<version>${mu.lib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${mu.lib.groupId}</groupId>
+			<artifactId>mu-lib-persist</artifactId>
+			<version>${mu.lib.version}</version>
+		</dependency>
+	</dependencies>
+</project>

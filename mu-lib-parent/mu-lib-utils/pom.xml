@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mu</groupId>
+		<artifactId>mu-lib-parent</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>mu-lib-utils</artifactId>
+	<name>mu-lib-utils</name>
+	<description>常用工具，如日期处理，字符串处理，json处理等</description>
+
+	<dependencies>
+
+		<!-- json处理库。 -->
+		<!-- Jackson JSON Processor 大数据量使用 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.4.1.1</version>
+		</dependency>
+		<!-- gson 小数据量使用 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<!-- ali fastjson 官网停用，文档缺乏,但是感觉比较好用 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.41</version>
+		</dependency>
+
+		<!-- apache 编码，解码的库 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+		</dependency>
+
+		<!-- apache的java.lang包扩展库。JAVA基础的、通用的操作和处理。，里面有很多的工具类 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+
+		<!-- apache java集合框架的加强使用库 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<!-- java发送email -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.5.0-b01</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- 序列化工具包。还未学习使用 -->
+		<!-- 学习网址http://ruedigermoeller.github.io/fast-serialization/ -->
+		<dependency>
+			<groupId>de.ruedigermoeller</groupId>
+			<artifactId>fst</artifactId>
+			<version>2.24</version>
+		</dependency>
+
+		<!-- jodd,java常用工具包，包含字符串处理，日期处理，等等一系列java常用工具。
+		分模块引入 -->
+		<!-- http://jodd.org/ -->
+		<!-- 一些工具类，包括Printf、JDateTime、StringUtil、Fast buffers等等 -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-core</artifactId>
+			<version>${jodd.version}</version>
+		</dependency>
+		<!-- BeanUtil以及类型检查转换工具。未使用 -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-bean</artifactId>
+			<version>${jodd.version}</version>
+		</dependency>
+		<!-- 更简单易用的e-mail收发。未使用 -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-mail</artifactId>
+			<version>${jodd.version}</version>
+		</dependency>
+		<!-- HTML/XML解析器，包含Jerry和CSSelly，让你像jQuery一样筛选HTML节点 -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-lagarto</artifactId>
+			<version>${jodd.version}</version>
+		</dependency>
+		<!-- 更强大的Java Properties替代 -->
+		<dependency>
+			<groupId>org.jodd</groupId>
+			<artifactId>jodd-props</artifactId>
+			<version>${jodd.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

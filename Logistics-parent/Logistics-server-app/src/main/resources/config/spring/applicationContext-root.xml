@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:annotation-config />
+
+	<!-- 自动扫描注解 -->
+	<context:component-scan base-package="com.**" />
+
+	<!-- 邮件 -->
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="${mail.encoding}" />
+		<property name="host" value="${mail.host}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="protocol" value="${mail.protocal}" />
+		<property name="javaMailProperties">
+			<props>
+				<!-- 让服务器检验用户密码是否正确 -->
+				<prop key="mail.smtp.auth">${mail.auth}</prop>
+				<!-- 邮件发送延时时间 -->
+				<prop key="mail.smtp.timeout">${mail.timeout}</prop>
+				<prop key="mail.debug">${mail.debug}</prop>
+				<prop key="mail.smtp.ssl.enable">${mail.ssl.enable}</prop>
+				<prop key="mail.smtp.socks.host">${mail.socks.host}</prop>
+				<prop key="mail.smtp.socks.port">${mail.socks.port}</prop>
+				<prop key="mail.smtp.socketFactory.class">${mail.socketFactory}</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+

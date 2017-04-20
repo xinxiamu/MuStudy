@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mu</groupId>
+		<artifactId>Logistics-parent</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>Logistics-persist</artifactId>
+	<name>Logistics-persist</name>
+	<description>底层数据库操作模块</description>
+	<build />
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>Logistics-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+	</dependencies>
+</project>
