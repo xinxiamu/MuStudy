@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="pattern-chain of responsibility">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_RespcGTCEeS4tN1-sk-o2A" name="Handler">
+    <ownedOperation xmi:id="_rCCg0GTCEeS4tN1-sk-o2A" name="handleRequest" visibility="public"/>
+    <ownedOperation xmi:id="_mAQzkGTDEeS4tN1-sk-o2A" name="setNextHandler"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AhRNEGTEEeS4tN1-sk-o2A" name="CancreateHandler1" clientDependency="_bwbGA2TEEeS4tN1-sk-o2A">
+    <interfaceRealization xmi:id="_bwbGA2TEEeS4tN1-sk-o2A" name="InterfaceRealization1" supplier="_RespcGTCEeS4tN1-sk-o2A" client="_AhRNEGTEEeS4tN1-sk-o2A" contract="_RespcGTCEeS4tN1-sk-o2A"/>
+    <ownedOperation xmi:id="_tdpVsGTEEeS4tN1-sk-o2A" name="handleRequest" visibility="public"/>
+    <ownedOperation xmi:id="_un3tIGTEEeS4tN1-sk-o2A" name="setNextHandler"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_A3KkkGTEEeS4tN1-sk-o2A" name="CancreateHandler2" clientDependency="_eh8LY2TEEeS4tN1-sk-o2A">
+    <interfaceRealization xmi:id="_eh8LY2TEEeS4tN1-sk-o2A" name="InterfaceRealization1" supplier="_RespcGTCEeS4tN1-sk-o2A" client="_A3KkkGTEEeS4tN1-sk-o2A" contract="_RespcGTCEeS4tN1-sk-o2A"/>
+    <ownedOperation xmi:id="_vd-OsGTEEeS4tN1-sk-o2A" name="handleRequest" visibility="public"/>
+    <ownedOperation xmi:id="_zq0poGTEEeS4tN1-sk-o2A" name="setNextHandler"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mNoPSmTFEeS4tN1-sk-o2A" name="A_&lt;handler>_&lt;handler>" memberEnd="_mNoPS2TFEeS4tN1-sk-o2A _mNoPTmTFEeS4tN1-sk-o2A" navigableOwnedEnd="_mNoPTmTFEeS4tN1-sk-o2A">
+    <ownedEnd xmi:id="_mNoPS2TFEeS4tN1-sk-o2A" name="handler" type="_RespcGTCEeS4tN1-sk-o2A" association="_mNoPSmTFEeS4tN1-sk-o2A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mNoPTGTFEeS4tN1-sk-o2A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mNoPTWTFEeS4tN1-sk-o2A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_mNoPTmTFEeS4tN1-sk-o2A" name="handler" type="_RespcGTCEeS4tN1-sk-o2A" association="_mNoPSmTFEeS4tN1-sk-o2A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mNoPT2TFEeS4tN1-sk-o2A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mNoPUGTFEeS4tN1-sk-o2A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
