@@ -99,11 +99,17 @@ public final class DateUtils {
 		return fromatterDateTime;
 	}
 	
-	public static String strDateTimeFormatter(String strDateTime, String formatterStyle) {
+	/**
+	 * 格式化日期。
+	 * @param strDateTimeOri	原始字符串格式日期
+	 * @param formatterStyle	目标日期格式
+	 * @return	新的格式化日期，失败返回null
+	 */
+	public static String strDateTimeFormatter(String strDateTimeOri, String formatterStyle) {
 		String str = null;
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formatterStyle);
 		try {
-			LocalDateTime localDateTime = LocalDateTime.parse(strDateTime, formatter);
+			LocalDateTime localDateTime = LocalDateTime.parse(strDateTimeOri, formatter);
 			str = localDateTime.toString();
 		} catch (DateTimeParseException  e) {
 			
@@ -114,5 +120,6 @@ public final class DateUtils {
 
 	public static void main(String[] args) {
 		System.out.println("----getCurrentDateTime:" + getCurrentDateTime(DateUtils.FormatterStyle.FORMAT4));
+		System.out.println("-----strDateTimeFormatter:" + strDateTimeFormatter("2017/04/28 10:17", DateUtils.FormatterStyle.FORMAT5));
 	}
 }
