@@ -60,6 +60,7 @@
 		<module>ymu-dao-hibernate</module>
 		<module>ymu-dao-jpa</module>
 		<module>ymu-dao-common</module>
+		<module>ymu-dao-jdbc</module>
 	</modules>
 
 	<dependencies>
