@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target({
         ElementType.METHOD
 })
-public @interface DS {
+public @interface DBInject {
     String value() default "test1";
 }

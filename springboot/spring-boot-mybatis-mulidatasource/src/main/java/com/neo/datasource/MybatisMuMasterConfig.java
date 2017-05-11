@@ -23,37 +23,37 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @Configuration
 @Import(DataSourceConfig.class)
 @AutoConfigureAfter(DataSourceConfig.class)
-@MapperScan(basePackages = "${mybatis.test1.typeAliasesPackage}", sqlSessionTemplateRef = "test1SqlSessionTemplate")
-public class MybatisTest1Config {
+@MapperScan(basePackages = "${mybatis.mu-master.typeAliasesPackage}", sqlSessionTemplateRef = "muMasterSqlSessionTemplate")
+public class MybatisMuMasterConfig {
 
 	@Autowired
 	private Environment env;
 
 	@Autowired
-	@Qualifier("test1DataSource")
-	private DataSource test1DataSource; // 注入数据源
+	@Qualifier("muMasterDataSource")
+	private DataSource muMasterDataSource; // 注入数据源
 
 	@Bean(name = "test1SqlSessionFactory")
 	@Primary
 	public SqlSessionFactory testSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-		bean.setDataSource(test1DataSource);
+		bean.setDataSource(muMasterDataSource);
 		bean.setMapperLocations(
-				new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.test1.mapperLocations")));
+				new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mu-master.mapperLocations")));
 		return bean.getObject();
 	}
 
-	@Bean(name = "test1SqlSessionTemplate")
+	@Bean(name = "muMasterSqlSessionTemplate")
 	@Primary
 	public SqlSessionTemplate testSqlSessionTemplate(
-			@Qualifier("test1SqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+			@Qualifier("muMasterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
-	@Bean(name = "test1TransactionManager")
+	@Bean(name = "muMasterTransactionManager")
 	@Primary
 	public DataSourceTransactionManager testTransactionManager() {
-		return new DataSourceTransactionManager(test1DataSource);
+		return new DataSourceTransactionManager(muMasterDataSource);
 	}
 
 }

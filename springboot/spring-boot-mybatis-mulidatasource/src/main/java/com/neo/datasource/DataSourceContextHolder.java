@@ -9,7 +9,7 @@ public class DataSourceContextHolder {
 	/**
 	 * 默认数据源
 	 */
-	public static final String DEFAULT_DS = "test1";
+	public static final String DEFAULT_DB = "mu-master";
 
 	private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 

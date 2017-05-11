@@ -17,39 +17,39 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
- * test2数据库配置。从库
+ * mu-slave数据库配置。从库
  */
 @Configuration
 @Import(DataSourceConfig.class)
 @AutoConfigureAfter(DataSourceConfig.class)
-@MapperScan(basePackages = "${mybatis.test2.typeAliasesPackage}", sqlSessionTemplateRef = "test2SqlSessionTemplate")
-public class MybatisTest2Config {
+@MapperScan(basePackages = "${mybatis.mu-slave.typeAliasesPackage}", sqlSessionTemplateRef = "muSlaveSqlSessionTemplate")
+public class MybatisMuSlaveConfig {
 
 	@Autowired
 	private Environment env;
 
 	@Autowired
-	@Qualifier("test2DataSource")
-	private DataSource test2DataSource; // 注入数据源
+	@Qualifier("muSlaveDataSource")
+	private DataSource muSlaveDataSource; // 注入数据源
 
-	@Bean(name = "test2SqlSessionFactory")
+	@Bean(name = "muSlaveSqlSessionFactory")
 	public SqlSessionFactory testSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-		bean.setDataSource(test2DataSource);
+		bean.setDataSource(muSlaveDataSource);
 		bean.setMapperLocations(new PathMatchingResourcePatternResolver()
-				.getResources(env.getProperty("mybatis.test2.mapperLocations")));
+				.getResources(env.getProperty("mybatis.mu-slave.mapperLocations")));
 		return bean.getObject();
 	}
 
-	@Bean(name = "test2SqlSessionTemplate")
+	@Bean(name = "muSlaveSqlSessionTemplate")
 	public SqlSessionTemplate testSqlSessionTemplate(
-			@Qualifier("test2SqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+			@Qualifier("muSlaveSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
-	@Bean(name = "test2TransactionManager")
+	@Bean(name = "muSlaveTransactionManager")
 	public DataSourceTransactionManager testTransactionManager() {
-		return new DataSourceTransactionManager(test2DataSource);
+		return new DataSourceTransactionManager(muSlaveDataSource);
 	}
 
 }

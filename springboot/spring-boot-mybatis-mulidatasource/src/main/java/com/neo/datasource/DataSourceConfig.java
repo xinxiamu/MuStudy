@@ -23,9 +23,9 @@ public class DataSourceConfig {
      *
      * @return
      */
-    @Bean(name = "test1DataSource")
-    @Qualifier("test1DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test1")
+    @Bean(name = "muMasterDataSource")
+    @Qualifier("muMasterDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.mu-master")
     @Primary
     public DataSource test1DataSource() {
         return DataSourceBuilder.create().build();
@@ -36,9 +36,9 @@ public class DataSourceConfig {
      *
      * @return
      */
-    @Bean(name = "test2DataSource")
-    @Qualifier("test2DataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.test2")
+    @Bean(name = "muSlaveDataSource")
+    @Qualifier("muSlaveDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.mu-slave")
     public DataSource test2DataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -47,17 +47,17 @@ public class DataSourceConfig {
      * 动态数据源: 通过AOP在不同数据源之间动态切换
      * @return
      */
-    @Bean(name = "dynamicDS")
-    public DataSource dataSource(@Qualifier("test1DataSource") DataSource test1DataSource,
-            @Qualifier("test2DataSource") DataSource test2DataSource) {
+    @Bean(name = "dynamicDB")
+    public DataSource dataSource(@Qualifier("muMasterDataSource") DataSource muMasterDataSource,
+            @Qualifier("muSlaveDataSource") DataSource muSlaveDataSource) {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         // 默认数据源
-        dynamicDataSource.setDefaultTargetDataSource(test1DataSource);
+        dynamicDataSource.setDefaultTargetDataSource(muMasterDataSource);
 
         // 配置多数据源
         Map<Object, Object> dsMap = new HashMap<>(5);
-        dsMap.put("test1", test1DataSource);
-        dsMap.put("test2", test2DataSource);
+        dsMap.put("mu-master", muMasterDataSource);
+        dsMap.put("mu-slave", muSlaveDataSource);
 
         dynamicDataSource.setTargetDataSources(dsMap);
 
