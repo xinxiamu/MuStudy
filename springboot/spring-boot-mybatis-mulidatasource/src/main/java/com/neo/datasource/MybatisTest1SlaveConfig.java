@@ -17,13 +17,13 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
- * mu-slave数据库配置。从库
+ * test数据库配置
  */
-@Configuration
-@Import(DataSourceConfig.class)
-@AutoConfigureAfter(DataSourceConfig.class)
-@MapperScan(basePackages = "${mybatis.mu-slave.typeAliasesPackage}", sqlSessionTemplateRef = "muSlaveSqlSessionTemplate")
-public class MybatisMuSlaveConfig {
+//@Configuration
+//@Import(DataSourceConfig.class)
+//@AutoConfigureAfter(DataSourceConfig.class)
+//@MapperScan(basePackages = "${mybatis.mu-slave.typeAliasesPackage}", sqlSessionTemplateRef = "muSlaveSqlSessionTemplate")
+public class MybatisTest1SlaveConfig {
 
 	@Autowired
 	private Environment env;

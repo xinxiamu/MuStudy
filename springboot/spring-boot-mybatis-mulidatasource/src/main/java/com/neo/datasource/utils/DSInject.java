@@ -1,4 +1,4 @@
-package com.neo.datasource;
+package com.neo.datasource.utils;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target({
         ElementType.METHOD
 })
-public @interface DBInject {
-    String value() default "test1";
+public @interface DSInject {
+    String value() default "mu_master";
 }

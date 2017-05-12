@@ -6,6 +6,6 @@ package com.neo.datasource;
  * @author Administrator
  *
  */
-public enum DBType {
+public enum DSType {
 	MU_MASTER, MU_SLAVE
 }

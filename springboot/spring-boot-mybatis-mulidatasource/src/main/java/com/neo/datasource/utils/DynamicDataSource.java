@@ -1,4 +1,4 @@
-package com.neo.datasource;
+package com.neo.datasource.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

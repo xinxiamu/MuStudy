@@ -9,6 +9,9 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
+import com.neo.datasource.utils.DSInject;
+import com.neo.datasource.utils.DataSourceContextHolder;
+
 @Aspect
 @Component
 public class DynamicDataSourceAspect {
@@ -29,8 +32,8 @@ public class DynamicDataSourceAspect {
 			Method method = className.getMethod(methodName, argClass);
 
 			// 判断是否存在@DBInject注解
-			if (method.isAnnotationPresent(DBInject.class)) {
-				DBInject annotation = method.getAnnotation(DBInject.class);
+			if (method.isAnnotationPresent(DSInject.class)) {
+				DSInject annotation = method.getAnnotation(DSInject.class);
 				// 取出注解中的数据源名
 				dataSource = annotation.value();
 			}

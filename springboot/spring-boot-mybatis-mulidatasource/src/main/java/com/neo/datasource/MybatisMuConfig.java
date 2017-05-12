@@ -18,42 +18,42 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
- * test1数据库配置
+ * mu数据库配置
  */
 @Configuration
 @Import(DataSourceConfig.class)
 @AutoConfigureAfter(DataSourceConfig.class)
-@MapperScan(basePackages = "${mybatis.mu-master.typeAliasesPackage}", sqlSessionTemplateRef = "muMasterSqlSessionTemplate")
-public class MybatisMuMasterConfig {
+@MapperScan(basePackages = "${mybatis.mu.typeAliasesPackage}", sqlSessionTemplateRef = "muSqlSessionTemplate")
+public class MybatisMuConfig {
 
 	@Autowired
 	private Environment env;
 
 	@Autowired
-	@Qualifier("muMasterDataSource")
-	private DataSource muMasterDataSource; // 注入数据源
+	@Qualifier("mu_dynamic_ds")
+	private DataSource muDynamicDataSource; // 注入数据源,动态切换
 
-	@Bean(name = "test1SqlSessionFactory")
+	@Bean(name = "muSqlSessionFactory")
 	@Primary
-	public SqlSessionFactory testSqlSessionFactory() throws Exception {
+	public SqlSessionFactory muSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-		bean.setDataSource(muMasterDataSource);
+		bean.setDataSource(muDynamicDataSource);
 		bean.setMapperLocations(
-				new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mu-master.mapperLocations")));
+				new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mu.mapperLocations"))); // 映射xml文件
 		return bean.getObject();
 	}
 
-	@Bean(name = "muMasterSqlSessionTemplate")
+	@Bean(name = "muSqlSessionTemplate")
 	@Primary
-	public SqlSessionTemplate testSqlSessionTemplate(
-			@Qualifier("muMasterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+	public SqlSessionTemplate muSqlSessionTemplate(
+			@Qualifier("muSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
-	@Bean(name = "muMasterTransactionManager")
+	@Bean(name = "muTransactionManager")
 	@Primary
 	public DataSourceTransactionManager testTransactionManager() {
-		return new DataSourceTransactionManager(muMasterDataSource);
+		return new DataSourceTransactionManager(muDynamicDataSource);
 	}
 
 }
