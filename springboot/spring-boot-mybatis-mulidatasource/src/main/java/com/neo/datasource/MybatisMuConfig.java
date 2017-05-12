@@ -5,7 +5,6 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -23,7 +22,8 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @Configuration
 @Import(DataSourceConfig.class)
 @AutoConfigureAfter(DataSourceConfig.class)
-@MapperScan(basePackages = "${mybatis.mu.typeAliasesPackage}", sqlSessionTemplateRef = "muSqlSessionTemplate")
+// @MapperScan(basePackages = "${mybatis.mu.typeAliasesPackage}",
+// sqlSessionTemplateRef = "muSqlSessionTemplate")
 public class MybatisMuConfig {
 
 	@Autowired
@@ -38,6 +38,7 @@ public class MybatisMuConfig {
 	public SqlSessionFactory muSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(muDynamicDataSource);
+		bean.setTypeAliasesPackage(env.getProperty("mybatis.mu.typeAliasesPackage"));//扫描包
 		bean.setMapperLocations(
 				new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mu.mapperLocations"))); // 映射xml文件
 		return bean.getObject();

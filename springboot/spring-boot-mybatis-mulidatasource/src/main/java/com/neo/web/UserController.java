@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.neo.entity.UserEntity;
 import com.neo.mapper.test2.User2Mapper;
+import com.neo.service.IUserService;
 
 @RestController
 public class UserController {
 
+	@Autowired
+	private IUserService userService;
 
 	@Autowired
 	private User1Mapper user1Mapper;
@@ -26,6 +29,9 @@ public class UserController {
 	
 	@RequestMapping("/add-mu")
 	public void saveMu(UserEntity user) {
+		System.out.println("---req:");
+//		UserEntity userEntity = new UserEntity;
+		userService.saveMu(user);
 	}
 	
 	@RequestMapping("/getMuUser")
