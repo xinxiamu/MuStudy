@@ -15,3 +15,4 @@ javaslang:
 ## 分布式、微服务
 #### spring cloud
 - https://github.com/kbastani/spring-cloud-microservice-example
+- https://github.com/kbastani/spring-cloud-event-sourcing-example
