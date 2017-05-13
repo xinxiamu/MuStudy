@@ -11,3 +11,7 @@ jwt
 
 javaslang:
   - http://www.vavr.io/
+  
+### 分布式、微服务
+#### spring cloud
+- https://github.com/kbastani/spring-cloud-microservice-example
