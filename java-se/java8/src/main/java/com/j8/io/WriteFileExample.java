@@ -40,7 +40,7 @@ public class WriteFileExample {
 
 			String content = "This is the content to write into file";
 
-			File file = new File(System.getProperty("user.dir"),"new1.txt");
+			File file = new File(System.getProperty("user.dir"),"a.txt");
 
 			// if file doesnt exists, then create it
 			if (!file.exists()) {
