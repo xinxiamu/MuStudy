@@ -28,6 +28,6 @@ public class PassingData {
 //        System.out.println("----user:" + user.getAge());
         Integer integer = (Integer) nashorn.eval("passGlobalValue2()",simpleBindings);
         System.out.println("passGlobalValue2返回：" + integer);
-    }
+    }   
     
 }
