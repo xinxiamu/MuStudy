@@ -2,11 +2,16 @@ package com.didispace.web;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,9 +39,14 @@ public class HelloController {
 
 	@RequestMapping("/hello")
 	public String index(HttpServletRequest request) throws IOException {
-
+		return "Hello World";
+	}
+	
+	@RequestMapping("/testResourceFileLoad")
+	public String testResourceFileLoad() throws FileNotFoundException {
+		StringBuilder sb = new StringBuilder();
 		// 测试读取路径
-		File f = ResourceUtils.getFile("classpath:a/a.txt");
+		File f = ResourceUtils.getFile("classpath:a/a.js");
 		FileReader a = new FileReader(f);
 		try (BufferedReader br = new BufferedReader(a)) {
 
@@ -44,12 +54,34 @@ public class HelloController {
 
 			while ((sCurrentLine = br.readLine()) != null) {
 				System.out.println(sCurrentLine);
+				sb.append(sCurrentLine);
 			}
-
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Hello World";
+		return deal(sb.toString());
+	}
+	
+	
+	private String deal(String s) {
+		StringBuilder sb = new StringBuilder();
+		System.out.println("---------:::" + s);
+		char[] b = s.toCharArray();
+		for (int i = 0; i < b.length; i++) {
+			char bt = b[i];
+			sb.append(bt);
+			if (bt == '{' || bt == '}') {
+				System.out.println("=======第一个" + bt);  
+				sb.append("</br>");
+			}  
+			if (bt == ';') {
+				sb.append("</br>");
+			}
+			
+		}
+		System.out.println("---" + sb.toString());
+		return sb.toString();  
 	}
 
 }
