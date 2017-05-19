@@ -12,6 +12,7 @@ jwt
 javaslang:
   - http://www.vavr.io/
   
+
 hibernate/jpa
   - https://github.com/vladmihalcea/high-performance-java-persistence
 
