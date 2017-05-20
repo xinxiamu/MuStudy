@@ -21,8 +21,9 @@ hibernate/jpa
 - https://github.com/kbastani/spring-cloud-microservice-example
 - https://github.com/kbastani/spring-cloud-event-sourcing-example
 - http://blog.csdn.net/column/details/15197.html
+
 > 如何在springcloud分布式系统中实现分布式锁？
-  - http://blog.csdn.net/forezp/article/details/68957681
+- http://blog.csdn.net/forezp/article/details/68957681
   
 > 实现分布式ID
-  - http://blog.csdn.net/forezp/article/details/69056017
+- http://blog.csdn.net/forezp/article/details/69056017
