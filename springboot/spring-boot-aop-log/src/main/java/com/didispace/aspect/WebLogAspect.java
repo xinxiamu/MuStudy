@@ -31,7 +31,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 // 定义切面执行顺序。
 // 在切入点前的操作，按order的值由小到大执行
 // 在切入点后的操作，按order的值由大到小执行
-@Order(5)
+//@Order(5)
 @Component
 public class WebLogAspect {
 
@@ -86,7 +86,7 @@ public class WebLogAspect {
 				+ (System.currentTimeMillis() - startTime.get()));	
 	}
 
-	@AfterThrowing(value = "webLog()")
+	@AfterThrowing(value = "webLog()")  
 	public void doAfterError() {
 		logger.info("切入部分抛异常");
 	}
