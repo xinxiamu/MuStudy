@@ -2,6 +2,8 @@ package com.j8.number;
 
 import static org.junit.Assert.assertEquals;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 public class NumberUtilsTest {
@@ -16,6 +18,14 @@ public class NumberUtilsTest {
 		assertEquals(n2,"123456.79");
 		assertEquals(n3,"000123.780");
 		assertEquals(n4,"$123,456.789");
+		
+		System.out.println("---::" + NumberUtils.customFormat("###.##", 903.01)); 
+	}
+	
+	@Test
+	public void test() {
+		BigDecimal bigDecimal = new BigDecimal(490);
+		System.out.println(String.valueOf(bigDecimal.doubleValue())); 
 	}
 
 }
