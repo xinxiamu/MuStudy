@@ -8,6 +8,15 @@ import java.util.List;
 import org.junit.Test;
 
 public class TestDemo {
+	
+	/**
+	 * æµ‹è¯•æ¢è¡Œ
+	 */
+	@Test
+	public void testSystem() {
+		String ls = System.getProperty("line.separator");
+		System.out.println("ab\tcd" + ls + "dsfsdf"); 
+	}
 
 	@Test
 	public void t() {
@@ -60,10 +69,10 @@ public class TestDemo {
 	@Test
 	public void sort2() {
 		List<User> users = new ArrayList<>();
-		User user = new User("ÕÅÈı", 18.5f);
-		User user2 = new User("ÀîËÄ", 12.5f);
-		User user3 = new User("Ä³Ä³", 12.4f);
-		User user4 = new User("»¢æ¤", 18.5f);
+		User user = new User("å¼ ä¸‰", 18.5f);
+		User user2 = new User("æå››", 12.5f);
+		User user3 = new User("æ™“ç’", 12.4f);
+		User user4 = new User("åˆ˜å¾·å", 18.5f);
 		users.add(user);
 		users.add(user2);
 		users.add(user3);
@@ -73,7 +82,7 @@ public class TestDemo {
 			System.out.println("---old:" + u.toString());
 		}
 
-		// ÅÅĞò
+		// æ’åº
 		Collections.sort(users,new Comparator<User>() {
 
 			@Override
