@@ -23,7 +23,9 @@ public class Demo {
 //		Double f = (Double) nashorn.eval("reservationRate_credit()", simpleBindings);
 //		System.out.println("---" + f);
 		
-		OctaneBenchmarkNashorn();
+//		OctaneBenchmarkNashorn();
+		
+		test5();
 
 	}
 

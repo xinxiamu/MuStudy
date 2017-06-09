@@ -1,8 +1,8 @@
 package com.j8.string;
 
 public enum TaskStatus {
-	All("È«²¿(½öÓÃÓÚ²éÑ¯)"),
-	waitDistribution("´ı·ÖÅä");
+	All("å…¨éƒ¨"),
+	waitDistribution("å¾…åˆ†é…");
 
 	private final String value;
 
