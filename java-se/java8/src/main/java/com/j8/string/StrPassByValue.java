@@ -18,6 +18,10 @@ public class StrPassByValue {
 		String x = new String("ab");
 		change(x);// 复值传递，复制一份值过去，不是指向相同对象。
 		System.out.println(x);// 仍然输出ab
+		//解决办法
+//		StringBuilder x = new StringBuilder("ab");
+//		change2(x);
+//		System.out.println(x);
 		
 		int a = 3;
 		changeInt(a);
@@ -48,6 +52,10 @@ public class StrPassByValue {
 //		System.out.println(x);
 		x = "cd";
 //		System.out.println(x);
+	}
+	
+	public static void change(StringBuilder x) {
+		x.delete(0, 2).append("cd");
 	}
 	
 	public static void changeInt(int a) {
