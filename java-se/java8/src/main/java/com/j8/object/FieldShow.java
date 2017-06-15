@@ -17,13 +17,16 @@ public class FieldShow {
 	public static void main(String[] args) {
 		Sub sub = new Sub();
 		System.out.println("---s:" + sub.s);
+		System.out.println("---super.s:" + ((Super)sub).s);//这样子才能拿到父类的同名域
 
 		Super sub2 = new Sub();
-		sub2.s="abcdef";
-		System.out.println("----s:" + sub2.s);
+		Sub.g = "33";  
+		System.out.println("----s:" + sub2.s); 
+		System.out.println("---g:" + Sub.g);
 		
 		Super sub3 = new Sub2();
 		System.out.println("----s:" + sub3.s);
+		System.out.println("---g:" + Sub2.g);
 	}
 }
 
