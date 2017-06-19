@@ -7,6 +7,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
+import com.example.ymu.domain.type.PrincipalType;
+
 /**
  * 校长
  * 

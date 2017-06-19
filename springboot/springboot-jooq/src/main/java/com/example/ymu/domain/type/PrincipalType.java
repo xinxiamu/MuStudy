@@ -1,4 +1,4 @@
-package com.example.ymu.domain;
+package com.example.ymu.domain.type;
 
 /**
  * 校长类型
