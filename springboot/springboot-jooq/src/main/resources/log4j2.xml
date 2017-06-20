@@ -88,7 +88,7 @@
 		<!-- spring -->
 		<logger name="org.springframework" level="info" />
 
-		<Root level="debug">
+		<Root level="info">
 			<AppenderRef ref="STDOUT" />
 			<AppenderRef ref="RollingFileAsync" level="error" />
 		</Root>

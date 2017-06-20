@@ -11,6 +11,9 @@ public class SpringbootJooqApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("----");
 	}
+	
+	
 
 }

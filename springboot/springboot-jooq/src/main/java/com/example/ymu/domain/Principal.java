@@ -4,8 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.example.ymu.domain.type.PrincipalType;
 
@@ -26,12 +27,19 @@ public class Principal extends BaseEntity {
 	@Column(nullable = false, length = 50)
 	@Enumerated(EnumType.STRING)
 	private PrincipalType PrincipalType;
-
+	
 	/**
-	 * 校长也是老师。单向
+	 * 用户基础信息。单向
 	 */
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(unique = true,name = "pepole_basic_id")
+	private PepoleBasic PepoleBasic;
+
+	/**
+	 * 校长也是老师。双向
+	 */
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")
 	private Teacher teacher;
 
 	public PrincipalType getPrincipalType() {

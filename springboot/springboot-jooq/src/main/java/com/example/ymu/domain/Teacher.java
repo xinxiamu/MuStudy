@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * 老师
@@ -40,6 +41,12 @@ public class Teacher extends BaseEntity {
 	 */
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
 	private List<Class> classes = new ArrayList<>();
+
+	/**
+	 * 校长。双向
+	 */
+	@OneToOne(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	private Principal principal;
 
 	public School getSchool() {
 		return school;
