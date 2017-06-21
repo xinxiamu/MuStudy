@@ -8,8 +8,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.ymu.dao.BaseDao;
-import com.example.ymu.dao.SchoolDaoImpl;
+import com.example.ymu.dao.SchoolDao;
+import com.example.ymu.dao.SchoolRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -17,13 +17,15 @@ import com.example.ymu.dao.SchoolDaoImpl;
 @Transactional
 public class DaoTest {
 	
-//	 @Autowired
-//	 private SchoolDaoImpl schoolDao;
+	 @Autowired
+	 private SchoolRepository schoolRepository;
+	 
+	 @Autowired
+	 private SchoolDao schoolDao;
 	
 	@Test
 	public void addSchool() {
-//		 schoolDao.showSchoolName();
-//		 schoolDao.sayHello("miss zhang");
+		 schoolDao.showSchoolName();
 
 		System.out.println("---");
 	}
