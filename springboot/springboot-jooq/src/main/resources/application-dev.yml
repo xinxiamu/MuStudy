@@ -9,7 +9,8 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: none
-#          auto: create
+#          auto: none
+#           auto: create
+           auto: update
 logging:
   config: classpath:log4j2.xml
