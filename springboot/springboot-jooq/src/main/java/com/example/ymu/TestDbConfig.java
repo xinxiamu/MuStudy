@@ -19,14 +19,14 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.example.ymu.dao.CustomerJpaRepositoryFactoryBean;
+import com.example.ymu.dao.base.BaseRepositoryFactoryBean;
 
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryTestDb", transactionManagerRef = "transactionManagerTestDb", basePackages = {
-		Constants.TEST_DB_PACKAGE_PATH }, repositoryFactoryBeanClass = CustomerJpaRepositoryFactoryBean.class) // 设置Repository所在位置
+		Constants.TEST_DB_PACKAGE_PATH }, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class) // 设置Repository所在位置
 public class TestDbConfig {
 
 	@Autowired
