@@ -18,14 +18,12 @@ import com.example.ymu.dao.SchoolRepository;
 public class DaoTest {
 	
 	 @Autowired
-	 private SchoolRepository schoolRepository;
-	 
-	 @Autowired
 	 private SchoolDao schoolDao;
 	
 	@Test
 	public void addSchool() {
 		 schoolDao.showSchoolName();
+		 SchoolRepository a = schoolDao.getMRepository();
 
 		System.out.println("---");
 	}
