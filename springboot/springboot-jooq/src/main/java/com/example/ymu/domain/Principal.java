@@ -27,19 +27,19 @@ public class Principal extends BaseEntity {
 	@Column(nullable = false, length = 50)
 	@Enumerated(EnumType.STRING)
 	private PrincipalType PrincipalType;
-	
+
 	/**
 	 * 用户基础信息。单向
 	 */
 	@OneToOne
-	@JoinColumn(unique = true,name = "pepole_basic_id")
+	@JoinColumn(unique = true, name = "pepole_basic_id")
 	private PepoleBasic PepoleBasic;
 
 	/**
 	 * 校长也是老师。双向
 	 */
 	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id")
+	@JoinColumn(name = "teacher_id")
 	private Teacher teacher;
 
 	public PrincipalType getPrincipalType() {
@@ -50,6 +50,14 @@ public class Principal extends BaseEntity {
 		PrincipalType = principalType;
 	}
 
+	public PepoleBasic getPepoleBasic() {
+		return PepoleBasic;
+	}
+
+	public void setPepoleBasic(PepoleBasic pepoleBasic) {
+		PepoleBasic = pepoleBasic;
+	}
+
 	public Teacher getTeacher() {
 		return teacher;
 	}
@@ -58,5 +66,4 @@ public class Principal extends BaseEntity {
 		this.teacher = teacher;
 	}
 
-	
 }

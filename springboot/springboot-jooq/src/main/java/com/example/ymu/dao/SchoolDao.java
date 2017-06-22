@@ -1,6 +1,8 @@
 package com.example.ymu.dao;
 
-public interface SchoolDao {
+import com.example.ymu.dao.base.BaseDao;
+
+public interface SchoolDao extends BaseDao<SchoolRepository> {
 
 	void showSchoolName();
 }

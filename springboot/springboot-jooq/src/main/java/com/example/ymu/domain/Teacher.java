@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -47,6 +48,13 @@ public class Teacher extends BaseEntity {
 	 */
 	@OneToOne(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private Principal principal;
+	
+	/**
+	 * 用户基础信息。单向
+	 */
+	@OneToOne
+	@JoinColumn(unique = true,name = "pepole_basic_id")
+	private PepoleBasic PepoleBasic;
 
 	public School getSchool() {
 		return school;

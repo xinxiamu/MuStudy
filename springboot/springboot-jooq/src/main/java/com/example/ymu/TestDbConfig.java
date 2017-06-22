@@ -26,7 +26,7 @@ import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryTestDb", transactionManagerRef = "transactionManagerTestDb", basePackages = {
-		Constants.TEST_DB_PACKAGE_PATH }, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class) // 设置Repository所在位置
+		Constants.TEST_DB_PACKAGE_PATH,Constants.TEST_DB_PACKAGE_PATH_1}, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class) // 设置Repository所在位置
 public class TestDbConfig {
 
 	@Autowired

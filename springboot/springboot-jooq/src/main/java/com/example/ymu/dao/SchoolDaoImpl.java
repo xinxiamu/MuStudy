@@ -1,22 +1,13 @@
 package com.example.ymu.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.ymu.dao.base.BaseDaoImpl;
+
 @Repository
 @Transactional(readOnly = true)
-public class SchoolDaoImpl implements SchoolDao {
-
-	@Autowired
-	@PersistenceContext
-	private EntityManager em;
-
-	@Autowired
-	public SchoolRepository schoolRepository;
+public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements SchoolDao {
 
 	@Override
 	public void showSchoolName() {

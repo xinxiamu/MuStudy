@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -25,6 +26,12 @@ public class Class extends BaseEntity {
 	private static final long serialVersionUID = -5406676654492554090L;
 
 	/**
+	 * 班号。
+	 */
+	@Column(nullable = false, length = 2)
+	private Integer cnum;
+
+	/**
 	 * 所属年级
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
@@ -41,6 +48,14 @@ public class Class extends BaseEntity {
 	 */
 	@ManyToMany(mappedBy = "classes")
 	private List<Teacher> teachers = new ArrayList<>();
+
+	public Integer getCnum() {
+		return cnum;
+	}
+
+	public void setCnum(Integer cnum) {
+		this.cnum = cnum;
+	}
 
 	public Grade getGrade() {
 		return grade;
