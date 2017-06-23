@@ -29,13 +29,6 @@ public class Principal extends BaseEntity {
 	private PrincipalType PrincipalType;
 
 	/**
-	 * 用户基础信息。单向
-	 */
-	@OneToOne
-	@JoinColumn(unique = true, name = "pepole_basic_id")
-	private PepoleBasic PepoleBasic;
-
-	/**
 	 * 校长也是老师。双向
 	 */
 	@OneToOne(fetch = FetchType.LAZY)
@@ -48,14 +41,6 @@ public class Principal extends BaseEntity {
 
 	public void setPrincipalType(PrincipalType principalType) {
 		PrincipalType = principalType;
-	}
-
-	public PepoleBasic getPepoleBasic() {
-		return PepoleBasic;
-	}
-
-	public void setPepoleBasic(PepoleBasic pepoleBasic) {
-		PepoleBasic = pepoleBasic;
 	}
 
 	public Teacher getTeacher() {

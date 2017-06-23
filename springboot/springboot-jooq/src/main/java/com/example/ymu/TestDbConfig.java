@@ -26,7 +26,8 @@ import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryTestDb", transactionManagerRef = "transactionManagerTestDb", basePackages = {
-		Constants.TEST_DB_PACKAGE_PATH,Constants.TEST_DB_PACKAGE_PATH_1}, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class) // 设置Repository所在位置
+		Constants.TEST_DB_PACKAGE_PATH, Constants.TEST_DB_PACKAGE_PATH_1,
+		Constants.TEST_DB_PACKAGE_DEMO }, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class) // 设置Repository所在位置
 public class TestDbConfig {
 
 	@Autowired
@@ -47,7 +48,7 @@ public class TestDbConfig {
 			testDbDataSource = new DataSourceSpy(testDbDataSource);
 		}
 		return builder.dataSource(testDbDataSource).properties(getVendorProperties(testDbDataSource))
-				.packages(Constants.TEST_DB_PACKAGE_PATH) // 设置实体类所在位置
+				.packages(Constants.TEST_DB_PACKAGE_PATH, Constants.TEST_DB_PACKAGE_DEMO) // 设置实体类所在位置
 				.persistenceUnit("testDbPersistenceUnit").build();
 	}
 

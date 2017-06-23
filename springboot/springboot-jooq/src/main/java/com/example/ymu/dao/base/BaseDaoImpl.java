@@ -19,5 +19,10 @@ public abstract class BaseDaoImpl<T extends BaseRepository> implements BaseDao<T
 	public T getMRepository() {
 		return mRepository;
 	}
+	
+	@Override
+	public EntityManager getEntityManager() {
+		return em;
+	}
 }
 	

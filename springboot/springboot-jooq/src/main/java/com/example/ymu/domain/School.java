@@ -91,22 +91,23 @@ public class School extends BaseEntity {
 	public void setFoundTime(Date foundTime) {
 		this.foundTime = foundTime;
 	}
-
+	
 	public List<Teacher> getTeachers() {
 		return teachers;
 	}
 
-	public void setTeachers(List<Teacher> teachers) {
-		this.teachers = teachers;
+	public void addTeacher(Teacher teacher) {
+		teachers.add(teacher);
+		teacher.setSchool(this);
 	}
-
+	
+	public void removeReacher(Teacher teacher) {
+		teachers.remove(teacher);
+		teacher.setSchool(null);  
+	}
+	
 	public List<Grade> getGrades() {
 		return grades;
 	}
-
-	public void setGrades(List<Grade> grades) {
-		this.grades = grades;
-	} 
-	
 	
 }

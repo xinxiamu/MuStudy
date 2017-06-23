@@ -1,4 +1,4 @@
-package com.example.ymu.dao;
+package com.example.ymu.dao.repository;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

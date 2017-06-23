@@ -37,10 +37,16 @@ public class Grade extends BaseEntity {
 	public List<Class> getClasses() {
 		return classes;
 	}
+	
+	public void addClass(Class class1) {
+        classes.add( class1 );
+        class1.setGrade(this);
+    }
 
-	public void setClasses(List<Class> classes) {
-		this.classes = classes;
-	}
+    public void removeClass(Class class1) {
+        classes.remove( class1 );
+        class1.setGrade(null);
+    }
 
 	public Integer getGnum() {
 		return gnum;

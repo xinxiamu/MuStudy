@@ -79,4 +79,20 @@ public class Teacher extends BaseEntity {
 	public void setClasses(List<Class> classes) {
 		this.classes = classes;
 	}
+
+	public Principal getPrincipal() {
+		return principal;
+	}
+
+	public void setPrincipal(Principal principal) {
+		this.principal = principal;
+	}
+
+	public PepoleBasic getPepoleBasic() {
+		return PepoleBasic;
+	}
+
+	public void setPepoleBasic(PepoleBasic pepoleBasic) {
+		PepoleBasic = pepoleBasic;
+	}
 }
