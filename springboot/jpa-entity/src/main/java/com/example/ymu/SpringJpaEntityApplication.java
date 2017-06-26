@@ -1,4 +1,4 @@
-package com.example.ymu.springjpaentity;
+package com.example.ymu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
