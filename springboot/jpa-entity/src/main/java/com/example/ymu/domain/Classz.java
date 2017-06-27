@@ -46,7 +46,7 @@ public class Classz extends BaseEntity {
 	/**
 	 * 拥有多个老师。
 	 */
-	@ManyToMany(mappedBy = "classes")
+	@ManyToMany(mappedBy = "classzs")
 	private List<Teacher> teachers = new ArrayList<>();
 
 	public Integer getCnum() {

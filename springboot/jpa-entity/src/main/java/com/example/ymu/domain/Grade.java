@@ -29,23 +29,23 @@ public class Grade extends BaseEntity {
 	private Integer gnum;
 
 	/**
-	 * 所有班级。
+	 * 所有班级。双向
 	 */
 	@OneToMany(mappedBy = "grade", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Classz> classes = new ArrayList<>();
+	private List<Classz> classzs = new ArrayList<>();
 
 	public List<Classz> getClasses() {
-		return classes;
+		return classzs;
 	}
 	
-	public void addClass(Classz class1) {
-        classes.add( class1 );
-        class1.setGrade(this);
+	public void addClass(Classz classz) {
+		classzs.add(classz);
+		classz.setGrade(this);
     }
 
-    public void removeClass(Classz class1) {
-        classes.remove( class1 );
-        class1.setGrade(null);
+    public void removeClass(Classz classz) {
+    	classzs.remove(classz);
+        classz.setGrade(null);
     }
 
 	public Integer getGnum() {

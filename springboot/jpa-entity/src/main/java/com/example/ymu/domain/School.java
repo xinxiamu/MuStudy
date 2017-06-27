@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 学校。
@@ -46,6 +48,7 @@ public class School extends BaseEntity {
 	 * 学校创办时间
 	 */
 	@Column(nullable = true, length = 4)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date foundTime;
 
 	/**
