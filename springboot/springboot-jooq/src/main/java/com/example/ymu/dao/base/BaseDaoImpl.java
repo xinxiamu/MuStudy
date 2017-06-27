@@ -3,6 +3,7 @@ package com.example.ymu.dao.base;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @SuppressWarnings("rawtypes")
@@ -13,7 +14,10 @@ public abstract class BaseDaoImpl<T extends BaseRepository> implements BaseDao<T
 	protected EntityManager em;
 	
 	@Autowired
-	public T mRepository;
+	protected T mRepository;
+	
+	@Autowired
+	protected DSLContext jooq;
 	
 	@Override
 	public T getMRepository() {
@@ -23,6 +27,11 @@ public abstract class BaseDaoImpl<T extends BaseRepository> implements BaseDao<T
 	@Override
 	public EntityManager getEntityManager() {
 		return em;
+	}
+	
+	@Override
+	public DSLContext getJooq() {
+		return jooq;
 	}
 }
 	

@@ -5,5 +5,5 @@ import com.example.ymu.dao.repository.SchoolRepository;
 
 public interface SchoolDao extends BaseDao<SchoolRepository> {
 
-	void showSchoolName();
+	void findSchoolName();
 }
