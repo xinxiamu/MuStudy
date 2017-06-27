@@ -41,7 +41,7 @@ public class Teacher extends BaseEntity {
 	 * 教多个班级。
 	 */
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-	private List<Class> classes = new ArrayList<>();
+	private List<Classz> classes = new ArrayList<>();
 
 	/**
 	 * 校长。双向
@@ -72,11 +72,11 @@ public class Teacher extends BaseEntity {
 		this.students = students;
 	}
 
-	public List<Class> getClasses() {
+	public List<Classz> getClasses() {
 		return classes;
 	}
 
-	public void setClasses(List<Class> classes) {
+	public void setClasses(List<Classz> classes) {
 		this.classes = classes;
 	}
 

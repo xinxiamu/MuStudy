@@ -29,19 +29,19 @@ public class Student extends BaseEntity {
 	 * 老师。多个
 	 */
 	@ManyToMany(mappedBy = "students")
-	private List<Teacher> teachers = new ArrayList<>();  
+	private List<Teacher> teachers = new ArrayList<>();
 
 	/**
 	 * 学生所属班级。
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
-	private Class class1;
-	
+	private Classz classz;
+
 	/**
 	 * 用户基础信息。单向
 	 */
 	@OneToOne
-	@JoinColumn(unique = true,name = "pepole_basic_id")
+	@JoinColumn(unique = true, name = "pepole_basic_id")
 	private PepoleBasic PepoleBasic;
 
 	public List<Teacher> getTeachers() {
@@ -52,13 +52,12 @@ public class Student extends BaseEntity {
 		this.teachers = teachers;
 	}
 
-	public Class getClass1() {
-		return class1;
+	public Classz getClassz() {
+		return classz;
 	}
 
-	public void setClass1(Class class1) {
-		this.class1 = class1;
+	public void setClassz(Classz classz) {
+		this.classz = classz;
 	}
-	
-	
+
 }

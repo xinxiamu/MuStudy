@@ -32,18 +32,18 @@ public class Grade extends BaseEntity {
 	 * 所有班级。
 	 */
 	@OneToMany(mappedBy = "grade", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Class> classes = new ArrayList<>();
+	private List<Classz> classes = new ArrayList<>();
 
-	public List<Class> getClasses() {
+	public List<Classz> getClasses() {
 		return classes;
 	}
 	
-	public void addClass(Class class1) {
+	public void addClass(Classz class1) {
         classes.add( class1 );
         class1.setGrade(this);
     }
 
-    public void removeClass(Class class1) {
+    public void removeClass(Classz class1) {
         classes.remove( class1 );
         class1.setGrade(null);
     }

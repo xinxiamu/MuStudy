@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Class extends BaseEntity {
+public class Classz extends BaseEntity {
 
 	/**
 	 * 
@@ -40,7 +40,7 @@ public class Class extends BaseEntity {
 	/**
 	 * 班级下所有学生。
 	 */
-	@OneToMany(mappedBy = "class1", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "classz", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Student> students = new ArrayList<>();
 
 	/**
