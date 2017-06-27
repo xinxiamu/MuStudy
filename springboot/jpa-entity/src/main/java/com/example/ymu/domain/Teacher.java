@@ -32,7 +32,7 @@ public class Teacher extends BaseEntity {
 	private School school;
 
 	/**
-	 * 学生。多个
+	 * 学生，多个。双向
 	 */
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
 	private List<Student> students = new ArrayList<>();

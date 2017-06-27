@@ -26,7 +26,7 @@ public class Student extends BaseEntity {
 	private static final long serialVersionUID = -7731264918256279520L;
 
 	/**
-	 * 老师。多个
+	 * 老师，多个。双向
 	 */
 	@ManyToMany(mappedBy = "students")
 	private List<Teacher> teachers = new ArrayList<>();
