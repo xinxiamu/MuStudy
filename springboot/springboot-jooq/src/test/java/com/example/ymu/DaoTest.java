@@ -2,6 +2,7 @@ package com.example.ymu;
 
 import java.sql.Date;
 
+import org.jooq.DSLContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.example.ymu.dao.PepoleBasicDao;
 import com.example.ymu.dao.PrincipalDao;
 import com.example.ymu.dao.SchoolDao;
 import com.example.ymu.dao.TeacherDao;
+import com.example.ymu.domain.Classz;
 import com.example.ymu.domain.Grade;
 import com.example.ymu.domain.PepoleBasic;
 import com.example.ymu.domain.Principal;
@@ -21,7 +23,6 @@ import com.example.ymu.domain.School;
 import com.example.ymu.domain.Teacher;
 import com.example.ymu.domain.type.PrincipalType;
 import com.example.ymu.domain.type.SexType;
-import com.example.ymu.domain.Class;;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,11 +39,10 @@ public class DaoTest {
 	private PepoleBasicDao pepoleBasicDao;
 	@Autowired
 	private PrincipalDao principalDao;
-
+	
 	@Test
 	@Commit
 	public void addSchool() {
-		schoolDao.showSchoolName();
 		School school = new School();
 		school.setAddr("马槛村");
 		school.setFoundTime(new Date(System.currentTimeMillis()));
@@ -52,9 +52,9 @@ public class DaoTest {
 		Grade grade = new Grade();
 		grade.setGnum(1);
 		//两个班
-		Class class1 = new Class();
+		Classz class1 = new Classz();
 		class1.setCnum(1);
-		Class class2 = new Class();
+		Classz class2 = new Classz();
 		class2.setCnum(2);
 		grade.addClass(class1);
 		grade.addClass(class2);
@@ -62,7 +62,7 @@ public class DaoTest {
 		Grade grade2 = new Grade();
 		grade2.setGnum(2);
 		//一个班
-		Class class3 = new Class();
+		Classz class3 = new Classz();
 		class3.setCnum(1);
 		grade2.addClass(class1);
 
@@ -74,8 +74,9 @@ public class DaoTest {
 	
 	@Test
 	public void getSchool() {
-		School school = schoolDao.getMRepository().findOne(5L);
+		School school = schoolDao.getMRepository().findOne(1L);
 		System.out.println("=====school:" + school.getName());
+		schoolDao.findSchoolName();
 	}
 	
 	@Test
