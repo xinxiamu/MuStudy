@@ -77,7 +77,6 @@ public class DaoTest {
 	public void getSchool() {
 		School school = schoolDao.getMRepository().findOne(1L);
 		System.out.println("=====school:" + school.getName());
-		schoolDao.findSchoolName();
 	}
 
 	@Test
