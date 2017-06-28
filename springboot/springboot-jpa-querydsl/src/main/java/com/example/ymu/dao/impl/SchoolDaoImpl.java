@@ -5,13 +5,17 @@ import org.springframework.stereotype.Repository;
 import com.example.ymu.dao.SchoolDao;
 import com.example.ymu.dao.base.BaseDaoImpl;
 import com.example.ymu.dao.repository.SchoolRepository;
+import com.example.ymu.domain.QSchool;
+import com.querydsl.jpa.impl.JPAQuery;
 
 @Repository
 public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements SchoolDao {
 
 	@Override
-	public void findSchoolName() {
-		
+	public String getSchoolNameById() {
+		QSchool school = QSchool.school;
+		JPAQuery<?> query = new JPAQuery<Void>(em);
+		String schoolName = query.select(school.name).from(school).where(school.id.eq(2L)).fetchOne();
+		return schoolName;
 	}
-
 }
