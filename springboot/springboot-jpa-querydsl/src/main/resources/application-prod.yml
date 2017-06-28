@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    testDb:
+      url: jdbc:mysql://localhost:3306/testDb
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+#          auto: none
+#           auto: create
+           auto: update
+logging:
+  config: classpath:log4j2.xml
