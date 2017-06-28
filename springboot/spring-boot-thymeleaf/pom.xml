@@ -44,6 +44,7 @@
 			<!--<groupId>org.springframework.boot</groupId>-->
 			<!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
 		<!--</dependency>-->
+		<!-- 覆盖自带的，以用到最新版本 -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
