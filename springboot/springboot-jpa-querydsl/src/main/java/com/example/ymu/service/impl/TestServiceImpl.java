@@ -10,10 +10,15 @@ import com.example.ymu.service.TestService;
 public class TestServiceImpl implements TestService {
 	
 	@Autowired
-	SchoolDao SchoolDao;
+	SchoolDao schoolDao;
 
 	@Override
 	public String getSchoolNameById() {
-		return SchoolDao.getSchoolNameById();
+		return schoolDao.getSchoolNameById();
+	}
+
+	@Override
+	public String getSchoolNameUseJdbc() {
+		return schoolDao.getSchoolNameUseJdbc();
 	}
 }

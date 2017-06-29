@@ -18,4 +18,10 @@ public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements Scho
 		String schoolName = query.select(school.name).from(school).where(school.id.eq(2L)).fetchOne();
 		return schoolName;
 	}
+
+	@Override
+	public String getSchoolNameUseJdbc() {
+		String schName = jdbcTemplate.queryForObject("SELECT `name` FROM school WHERE id=1",  String.class);
+		return schName;
+	}
 }
