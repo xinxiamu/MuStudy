@@ -17,8 +17,9 @@ public class DataSourceConfig {
 
     @Bean(name = "testDbDataSource")
     @Qualifier("testDbDataSource")
-    @ConfigurationProperties(prefix="spring.datasource.testDb")
+    @ConfigurationProperties(prefix="spring.datasource.druid.testDb")
     public DataSource primaryDataSource() {
+//    	DruidDataSourceAutoConfigure
         return DataSourceBuilder.create().build();
     }
     

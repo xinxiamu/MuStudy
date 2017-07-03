@@ -13,8 +13,8 @@ public class TestServiceImpl implements TestService {
 	SchoolDao schoolDao;
 
 	@Override
-	public String getSchoolNameById() {
-		return schoolDao.getSchoolNameById();
+	public String getSchoolNameById(Long id) {
+		return schoolDao.getSchoolNameById(id);
 	}
 
 	@Override

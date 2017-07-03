@@ -78,7 +78,7 @@ public class DaoTest {
 		School school = schoolDao.getMRepository().findOne(1L);
 		System.out.println("=====school name jpa:" + school.getName());
 		
-		String a = schoolDao.getSchoolNameById();
+		String a = schoolDao.getSchoolNameById(1L);
 		System.out.println("====school name querydsl:" + a);
 		
 		String b = schoolDao.getSchoolNameUseJdbc();

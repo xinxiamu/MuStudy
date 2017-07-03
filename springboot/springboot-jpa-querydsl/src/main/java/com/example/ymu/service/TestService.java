@@ -2,7 +2,7 @@ package com.example.ymu.service;
 
 public interface TestService {
 
-	String getSchoolNameById();
+	String getSchoolNameById(Long id);
 	
 	String getSchoolNameUseJdbc();
 }

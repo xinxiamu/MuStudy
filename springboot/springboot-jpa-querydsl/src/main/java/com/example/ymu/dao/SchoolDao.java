@@ -5,7 +5,7 @@ import com.example.ymu.dao.repository.SchoolRepository;
 
 public interface SchoolDao extends BaseDao<SchoolRepository> {
 
-	String getSchoolNameById();
+	String getSchoolNameById(Long id);
 	
 	String getSchoolNameUseJdbc();
 }
