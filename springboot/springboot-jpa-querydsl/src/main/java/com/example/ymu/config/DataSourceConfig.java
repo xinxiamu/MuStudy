@@ -1,4 +1,4 @@
-package com.example.ymu;
+package com.example.ymu.config;
 
 import javax.sql.DataSource;
 
@@ -19,7 +19,6 @@ public class DataSourceConfig {
     @Qualifier("testDbDataSource")
     @ConfigurationProperties(prefix="spring.datasource.druid.testDb")
     public DataSource primaryDataSource() {
-//    	DruidDataSourceAutoConfigure
         return DataSourceBuilder.create().build();
     }
     

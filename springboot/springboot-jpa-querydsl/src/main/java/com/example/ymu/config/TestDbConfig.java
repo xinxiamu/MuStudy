@@ -1,4 +1,4 @@
-package com.example.ymu;
+package com.example.ymu.config;
 
 import java.util.Map;
 
@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,7 @@ import com.example.ymu.dao.base.BaseRepositoryFactoryBean;
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 
 @Configuration
+@AutoConfigureAfter(DataSourceConfig.class)
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryTestDb", transactionManagerRef = "transactionManagerTestDb", basePackages = {
 		Constants.TEST_DB_PACKAGE_PATH, Constants.TEST_DB_PACKAGE_PATH_1,

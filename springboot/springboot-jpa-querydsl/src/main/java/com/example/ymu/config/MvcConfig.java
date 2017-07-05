@@ -1,4 +1,4 @@
-package com.example.ymu;
+package com.example.ymu.config;
 
 import java.util.List;
 

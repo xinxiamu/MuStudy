@@ -1,4 +1,4 @@
-package com.example.ymu;
+package com.example.ymu.config;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -37,7 +37,7 @@ public class JsonViewHttpMessageConverter
 			throws IOException, HttpMessageNotWritableException {
 		System.out.println("------JsonHttpMessageConverter writeInternal");
 		//使用Jackson的ObjectMapper将Java对象转换成Json String
-	    ObjectMapper mapper = new ObjectMapper();
+	    ObjectMapper mapper = this.objectMapper;
 	    String json = mapper.writeValueAsString(object);
 	    //加密
 	    String result = AESUtils.jdkAESEncode(keyStr, json);
