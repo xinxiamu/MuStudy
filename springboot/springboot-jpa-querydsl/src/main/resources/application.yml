@@ -1,5 +1,10 @@
 spring:
   application:
-    name: jooq
+    name: querydsl
   profiles:
     active: dev
+#jasypt:
+#  encryptor:
+#    password: abcd
+
+ab: ${jdbc.password}
