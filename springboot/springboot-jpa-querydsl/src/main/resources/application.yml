@@ -7,4 +7,6 @@ spring:
 #  encryptor:
 #    password: abcd
 
-ab: ${jdbc.password}
+---
+#mumu: safdsfsdf
+
