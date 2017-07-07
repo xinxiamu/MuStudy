@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  
+---
+show:
+  id: 12  
+  
+---
+spring:
+  profiles:
+    active: dev
+    
+---
+what:
+  a: a      
+  
+---
+my:
+  name: mutou(${golang.version})
+#  sex: man
+  age: 18

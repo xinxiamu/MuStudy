@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  
+---
+my:
+#  name: zhangmutian(${what.a})
+  sex: 女
+  age: 108
+  
+---
+golang:
+  version: 1.9

@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  
+---
+my:
+  name: mutou
+#  sex: man
+  age: 18
