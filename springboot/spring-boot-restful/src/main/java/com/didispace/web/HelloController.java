@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,13 +28,15 @@ import com.didispace.domain.User;
  */
 @RestController
 public class HelloController {
+	
+	@Value("${my.name}")
+	private String myName;
 
 	@RequestMapping("/")
 	public User user() {
-		System.out.println("abc");
 		User user = new User();
 		user.setAge(12);
-		user.setName("ab");
+		user.setName(myName);
 		return user;
 	}
 
