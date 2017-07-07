@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "my", locations = "classpath:my.properties")
+@ConfigurationProperties(prefix = "my", value = "classpath:my.properties")
 public class My {
 
 	@NotEmpty
