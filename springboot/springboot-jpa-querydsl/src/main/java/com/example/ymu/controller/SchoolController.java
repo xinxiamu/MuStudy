@@ -14,9 +14,16 @@ public class SchoolController {
 	
 	@Value("${jdbc.password}")
 	private String jdbcPWD;
+//	
+//	@Value("${ab}")
+//	private String ab;
+//	
+//	@Value("${mumu}")
+//	private String mutou;
 	
-	@Value("${ab}")
-	private String ab;
+//	@Value("${config}")
+//	private String aaa;
+	
 
 	@Autowired
 	TestService schoolService;
@@ -24,7 +31,8 @@ public class SchoolController {
 	@RequestMapping("/getSchoolNameById")
 	public String getSchoolNameById(@RequestParam(required = true, defaultValue = "1") Long id) {
 		System.out.println("-------jdbc pwd:" + jdbcPWD);
-		System.out.println("----ab:" + ab);  
+//		System.out.println("-------aaa:" + aaa);
+//		System.out.println("-------mutou:" + mutou);
 		return schoolService.getSchoolNameById(id);
 	}
 }

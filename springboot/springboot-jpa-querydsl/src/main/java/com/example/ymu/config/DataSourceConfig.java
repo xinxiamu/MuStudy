@@ -3,6 +3,8 @@ package com.example.ymu.config;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -13,12 +15,17 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * 数据源。
  */
 @Configuration
+@AutoConfigureAfter(Config.class)
 public class DataSourceConfig {
+	
+	@Value("${jdbc.password}")
+	private String jdbcPWD;
 
     @Bean(name = "testDbDataSource")
     @Qualifier("testDbDataSource")
     @ConfigurationProperties(prefix="spring.datasource.druid.testDb")
     public DataSource primaryDataSource() {
+    	System.out.println("------启动：" + jdbcPWD); 
         return DataSourceBuilder.create().build();
     }
     
