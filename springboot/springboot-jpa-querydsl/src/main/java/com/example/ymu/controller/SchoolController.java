@@ -12,8 +12,8 @@ import com.example.ymu.service.TestService;
 @RequestMapping("/school")
 public class SchoolController {
 	
-	@Value("${jdbc.password}")
-	private String jdbcPWD;
+//	@Value("${jdbc.password}")
+//	private String jdbcPWD;
 //	
 //	@Value("${ab}")
 //	private String ab;
@@ -30,7 +30,7 @@ public class SchoolController {
 
 	@RequestMapping("/getSchoolNameById")
 	public String getSchoolNameById(@RequestParam(required = true, defaultValue = "1") Long id) {
-		System.out.println("-------jdbc pwd:" + jdbcPWD);
+//		System.out.println("-------jdbc pwd:" + jdbcPWD);
 //		System.out.println("-------aaa:" + aaa);
 //		System.out.println("-------mutou:" + mutou);
 		return schoolService.getSchoolNameById(id);

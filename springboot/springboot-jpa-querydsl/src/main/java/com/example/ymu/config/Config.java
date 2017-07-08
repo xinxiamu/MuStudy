@@ -10,11 +10,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Config {
 
 	/**
-	 * 自定义配置加载，方法定义为static的，保证优先加载
+	 * 自定义配置加载，方法定义为static的，保证优先加载。
+	 * 在spring-boot中不能自定义，否则自动@Value("${mumu}")将失效。
+	 * 解决办法：？？？？？？？
 	 * 
 	 * @return
 	 */
-	@Bean
+//	@Bean
 	public static EncryptPropertyPlaceholderConfigurer encryptPropertyPlaceholderConfigurer() {
 		EncryptPropertyPlaceholderConfigurer epc = new EncryptPropertyPlaceholderConfigurer();
 		epc.setLocation(new ClassPathResource("config/encrypted.properties"));

@@ -18,14 +18,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @AutoConfigureAfter(Config.class)
 public class DataSourceConfig {
 	
-	@Value("${jdbc.password}")
-	private String jdbcPWD;
-
     @Bean(name = "testDbDataSource")
     @Qualifier("testDbDataSource")
     @ConfigurationProperties(prefix="spring.datasource.druid.testDb")
     public DataSource primaryDataSource() {
-    	System.out.println("------启动：" + jdbcPWD); 
         return DataSourceBuilder.create().build();
     }
     
