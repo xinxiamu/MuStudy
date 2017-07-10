@@ -37,12 +37,14 @@ public class JsonViewHttpMessageConverter
 			throws IOException, HttpMessageNotWritableException {
 		System.out.println("------JsonHttpMessageConverter writeInternal");
 		//使用Jackson的ObjectMapper将Java对象转换成Json String
-	    ObjectMapper mapper = this.objectMapper;
-	    String json = mapper.writeValueAsString(object);
-	    //加密
-	    String result = AESUtils.jdkAESEncode(keyStr, json);
-	    //输出
-	    outputMessage.getBody().write(result.getBytes());
+//	    ObjectMapper mapper = this.objectMapper;
+//	    String json = mapper.writeValueAsString(object);
+//	    //加密
+//	    String result = AESUtils.jdkAESEncode(keyStr, json);
+//	    //输出
+//	    outputMessage.getBody().write(result.getBytes());
+		
+		super.writeInternal(object, type, outputMessage);
 
 	}
 	

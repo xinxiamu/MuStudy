@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -65,6 +66,17 @@ public class TestDbConfig {
 	@Bean(name = "transactionManagerTestDb")
 	public PlatformTransactionManager transactionManagerTestDb(EntityManagerFactoryBuilder builder) {
 		return new JpaTransactionManager(entityManagerFactoryTestDb(builder).getObject());
+	}
+
+	/**
+	 * spring jdbc
+	 * 
+	 * @param dataSource
+	 * @return
+	 */
+	@Bean(name = "jdbcTemplate")
+	public JdbcTemplate primaryJdbcTemplate(@Qualifier("testDbDataSource") DataSource dataSource) {
+		return new JdbcTemplate(dataSource);
 	}
 
 }

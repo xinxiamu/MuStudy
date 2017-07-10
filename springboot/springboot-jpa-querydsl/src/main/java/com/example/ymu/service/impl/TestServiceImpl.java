@@ -18,7 +18,7 @@ public class TestServiceImpl implements TestService {
 	}
 
 	@Override
-	public String getSchoolNameUseJdbc() {
-		return schoolDao.getSchoolNameUseJdbc();
+	public String getSchoolNameUseJdbc(Long id) {
+		return schoolDao.getSchoolNameUseJdbc(id);
 	}
 }

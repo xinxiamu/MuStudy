@@ -7,5 +7,5 @@ public interface SchoolDao extends BaseDao<SchoolRepository> {
 
 	String getSchoolNameById(Long id);
 	
-	String getSchoolNameUseJdbc();
+	String getSchoolNameUseJdbc(Long id);
 }

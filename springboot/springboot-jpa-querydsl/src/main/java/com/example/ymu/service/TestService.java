@@ -4,5 +4,5 @@ public interface TestService {
 
 	String getSchoolNameById(Long id);
 	
-	String getSchoolNameUseJdbc();
+	String getSchoolNameUseJdbc(Long id);
 }
