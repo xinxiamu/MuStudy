@@ -81,7 +81,7 @@ public class DaoTest {
 		String a = schoolDao.getSchoolNameById(1L);
 		System.out.println("====school name querydsl:" + a);
 		
-		String b = schoolDao.getSchoolNameUseJdbc();
+		String b = schoolDao.getSchoolNameUseJdbc(1L);
 		System.out.println("======school name jdbc:" + b);
 	}
 
