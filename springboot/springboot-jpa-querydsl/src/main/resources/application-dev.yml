@@ -1,3 +1,11 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:mykeys.jks
+    key-store-password: 701712
+    key-password: 701712 #https
+
+---
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource ##指定使用的数据池类  
