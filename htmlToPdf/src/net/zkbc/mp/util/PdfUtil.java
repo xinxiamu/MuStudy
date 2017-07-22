@@ -30,8 +30,8 @@ public class PdfUtil {
 		// + "simsun.ttc";
 		// System.out.println(filePath.replaceAll("file:/", ""));
 		// System.out.println(new File(filePath));
-		htmlToPdf("/data/fs/sinspector/BJ20150522001.pdf",
-				"http://localhost:9080/account/observerInforeport/BJ20150522001");
+		htmlToPdf("G:/BJ20150522001.pdf",
+				"http://localhost:4000/modules/dispatch-center/task-manage");
 	}
 
 	/**
