@@ -13,16 +13,16 @@
 	<dependencies>
 		
 		<!-- dao -->
-		<dependency>
+		<!--<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>ymu-dao-jpa</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>ymu-dao-jdbc</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>ymu-dao-mybatis</artifactId>
