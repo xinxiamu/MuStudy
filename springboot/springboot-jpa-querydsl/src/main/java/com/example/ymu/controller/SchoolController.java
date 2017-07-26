@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.ymu.dao.SchoolDao;
 import com.example.ymu.service.TestService;
 
 @RestController
@@ -13,6 +14,10 @@ public class SchoolController {
 	
 	@Autowired
 	TestService schoolService;
+	
+	@Autowired
+	SchoolDao schoolDao;
+	
 
 	@RequestMapping("/getSchoolNameById")
 	public String getSchoolNameById(@RequestParam(required = true, defaultValue = "1") Long id) {
@@ -22,5 +27,10 @@ public class SchoolController {
 	@RequestMapping("/getSchoolNameUseJdbc")
 	public String getSchoolNameUseJdbc(@RequestParam(required = true, defaultValue = "1") Long id) {
 		return schoolService.getSchoolNameUseJdbc(id);
+	}
+	
+	@RequestMapping("/addBatchByJdbc")
+	public void insert() {
+		schoolDao.batchInsert(null);    
 	}
 }
