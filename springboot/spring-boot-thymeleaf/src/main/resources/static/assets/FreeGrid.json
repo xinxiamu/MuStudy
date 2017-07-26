@@ -1,0 +1,14 @@
+﻿{
+    "Table": [
+        {
+            "deptName": "可以",
+            "CompanyName": "五金机械",
+            "ContactName": "苏先生",
+            "Address": "德昌路甲 29 号",
+            "City": "大连",
+            "Region": "东北",
+            "Phone": "(053) 5556874",
+            "Photo": "iVBORw0KGgoAAAANSUhEUgAAAPsAAABGAQAAAAAiXd+gAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAAEnRFWHRTb2Z0d2FyZQBCYXJjb2RlNEryjnYuAAAAuUlEQVR42mMocdFb9EhrkVX3Atcrsa6yLu5Bjzp2rLJY9aKxJKQk3MWBYVTBqIJRBaMKRhWMKhhVQE8F//GDB0gKvv87+P+eTe3DY3wW2BU8/3fv/9zbO9/vfnu9HquC6yxxz+Pv77y//y4OBd/f3bt9//7Ww8v34lRw8P79faV3Z+8zw6Hg3r379/ev/bt7700cCvYBFdQv+Lu79j5OBbfv/d57d3ctLjewOT6/I1P7+HgdjnDAHpIAG8OYI8nWaSQAAAAASUVORK5CYII="
+        }
+    ]
+}
