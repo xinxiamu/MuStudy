@@ -1,8 +1,13 @@
 package com.example.ymu;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import org.jooq.DSLContext;
+import org.jooq.Record;
+import org.jooq.Record1;
+import org.jooq.Record2;
+import org.jooq.Result;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +28,7 @@ import com.example.ymu.domain.School;
 import com.example.ymu.domain.Teacher;
 import com.example.ymu.domain.type.PrincipalType;
 import com.example.ymu.domain.type.SexType;
+import static com.example.demo.jooq.Tables.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -72,11 +78,17 @@ public class DaoTest {
 		schoolDao.getMRepository().save(school);
 	}
 	
+	@Autowired
+	DSLContext jooq;
+	
 	@Test
 	public void getSchool() {
 		School school = schoolDao.getMRepository().findOne(1L);
 		System.out.println("=====school:" + school.getName());
 		schoolDao.findSchoolName();
+		
+//		Result<Record> a = jooq.select().from(SCHOOL).fetch();
+//		System.out.println("---sql:" + a.size()); 
 	}
 	
 	@Test
@@ -91,6 +103,12 @@ public class DaoTest {
 		pepoleBasicDao.getMRepository().save(pepoleBasic);
 		teacher.setPepoleBasic(pepoleBasic);
 		teacherDao.getMRepository().save(teacher);
+	}
+	
+	@Test
+	public void getPepoleTest() {
+		Result<Record2<String, Timestamp>> a = jooq.select(PEPOLE_BASIC.NAME,PEPOLE_BASIC.BIRTHDAY_TIME).from(PEPOLE_BASIC).fetch();
+		System.out.println("---a:" + a.size());
 	}
 	
 	@Test
