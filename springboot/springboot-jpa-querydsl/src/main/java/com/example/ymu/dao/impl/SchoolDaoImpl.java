@@ -2,6 +2,7 @@ package com.example.ymu.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.example.ymu.dao.repository.SchoolRepository;
 import com.example.ymu.domain.QSchool;
 import com.example.ymu.domain.School;
 import com.querydsl.jpa.impl.JPAQuery;
+import com.ymu.framework.dao.persist.jdbc.SpringJdbcAccessor;
 import com.ymu.framework.utils.time.DateUtil;
 
 @Repository
@@ -55,11 +57,11 @@ public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements Scho
 			// 外层循环，总提交事务次数
 			for (int i = 1; i <= 100; i++) {
 				// 第次提交步长,一万条插一次
-				for (int j = 1; j <= 10000; j++) { 
+				for (int j = 1; j <= 10000; j++) {
 					// 构建sql后缀
 					suffix.append("(").append("'").append("电城镇").append(i).append(j).append("'").append(",").append("'")
-							.append(DateUtil.dateToString(new Date())).append("'").append(",").append("'").append("小学").append(i).append(j)
-							.append("'").append(")").append(","); 
+							.append(DateUtil.dateToString(new Date())).append("'").append(",").append("'").append("小学")
+							.append(i).append(j).append("'").append(")").append(",");
 				}
 				// 构建完整sql
 				String sql = prefix + suffix.substring(0, suffix.length() - 1);
@@ -80,6 +82,22 @@ public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements Scho
 		}
 		long endTime = System.currentTimeMillis();
 		System.out.println("====共用时间(秒)：" + (endTime - startTime) / 1000);
+	}
+
+	@Override
+	public void batchInser2() {
+		try {
+			String[] fields = new String[] { "name", "addr", "foundTime" };
+			List<Object[]> list = new ArrayList<>();
+			for (int i = 1; i <= 10000 * 100; i++) { 
+				Object[] row = new Object[] { "马槛小学" + i, "电城镇马槛村", new Date() };
+				list.add(row);
+			}
+			SpringJdbcAccessor.addBatch(jdbcTemplate, School.class.getSimpleName(), fields, list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

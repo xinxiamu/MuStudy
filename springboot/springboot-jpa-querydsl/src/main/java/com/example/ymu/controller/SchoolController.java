@@ -33,4 +33,9 @@ public class SchoolController {
 	public void insert() {
 		schoolDao.batchInsert(null);    
 	}
+	
+	@RequestMapping("/addBatch2")
+	public void addBatch2() {
+		schoolDao.batchInser2();   
+	}
 }

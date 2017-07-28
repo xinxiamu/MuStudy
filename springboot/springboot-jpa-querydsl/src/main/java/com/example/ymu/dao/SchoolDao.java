@@ -18,4 +18,6 @@ public interface SchoolDao extends BaseDao<SchoolRepository> {
 	 * @param schools
 	 */
 	void batchInsert(List<School> schools);
+	
+	void batchInser2();
 }

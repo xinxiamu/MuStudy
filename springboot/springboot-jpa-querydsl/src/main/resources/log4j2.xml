@@ -69,17 +69,17 @@
 			<appender-ref ref="Log4jdbcConsole" />
 			<appender-ref ref="Log4jdbcRollingFile" />
 		</logger>
+		
 
-
-		<Logger name="org.apache.logging.log4j.test1" level="info"
-			additivity="false"><!-- logger中输出的日志不会再延伸到父层logger -->
+		<!-- <Logger name="org.apache.logging.log4j.test1" level="info"
+			additivity="false">logger中输出的日志不会再延伸到父层logger
 			<ThreadContextMapFilter>
 				<KeyValuePair key="test" value="123" />
 			</ThreadContextMapFilter>
 			<AppenderRef ref="STDOUT" />
-		</Logger>
+		</Logger> -->
 
-		<Logger name="org.apache.logging.log4j.test2" level="info"
+		<!-- <Logger name="org.apache.logging.log4j.test2" level="info"
 			additivity="false">
 			<Property name="user">${sys:user.name}</Property>
 			<AppenderRef ref="File">
@@ -88,18 +88,23 @@
 				</ThreadContextMapFilter>
 			</AppenderRef>
 			<AppenderRef ref="STDOUT" level="error" />
-		</Logger>
+		</Logger> -->
+		
+		<logger name="com.example.ymu" level="debug" additivity="false">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="RollingFileAsync" level="error"/>
+		</logger>
 
 		<!-- spring -->
-		<logger name="org.springframework" level="info" />
+		<!-- <logger name="org.springframework" level="debug" />   -->
 
 		<!-- druid配置 -->
-		<logger name="druid.sql.Statement" level="debug" additivity="false">
+		<!-- <logger name="druid.sql.Statement" level="debug" additivity="false">
 			<appender-ref ref="Console" />
 		</logger>
 		<logger name="druid.sql.ResultSet" level="debug" additivity="false">
 			<appender-ref ref="Console" />
-		</logger>
+		</logger> -->
 	</Loggers>
 
 </Configuration>
