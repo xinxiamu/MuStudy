@@ -1,5 +1,6 @@
 package com.example.ymu.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.example.ymu.dao.base.BaseDao;
@@ -20,4 +21,9 @@ public interface SchoolDao extends BaseDao<SchoolRepository> {
 	void batchInsert(List<School> schools);
 	
 	void batchInser2();
+	
+	/**
+	 * 大数据量查询
+	 */
+	void selectData(String sqlCmd) throws SQLException;
 }

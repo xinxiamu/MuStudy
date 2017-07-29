@@ -1,5 +1,7 @@
 package com.example.ymu.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,4 +40,15 @@ public class SchoolController {
 	public void addBatch2() {
 		schoolDao.batchInser2();   
 	}
+	
+	@RequestMapping("/selectData")
+	public void selectData() throws SQLException {
+		long startTime = System.currentTimeMillis();
+		String sqlCmd = "SELECT * FROM school";
+//		String sqlCmd = "SELECT * FROM school LIMIT 0,1000";
+		schoolDao.selectData(sqlCmd); 
+		System.out.println("====用时（s）：" + (System.currentTimeMillis() - startTime)/1000f);
+	}
+	
+	
 }

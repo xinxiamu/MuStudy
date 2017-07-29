@@ -2,10 +2,13 @@ package com.example.ymu.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.ymu.dao.SchoolDao;
@@ -89,7 +92,7 @@ public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements Scho
 		try {
 			String[] fields = new String[] { "name", "addr", "foundTime" };
 			List<Object[]> list = new ArrayList<>();
-			for (int i = 1; i <= 10000 * 100; i++) { 
+			for (int i = 1; i <= 10000 * 100; i++) {
 				Object[] row = new Object[] { "马槛小学" + i, "电城镇马槛村", new Date() };
 				list.add(row);
 			}
@@ -98,6 +101,52 @@ public class SchoolDaoImpl extends BaseDaoImpl<SchoolRepository> implements Scho
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void selectData(String sqlCmd) throws SQLException {
+
+		// validate(sqlCmd);
+
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = jdbcTemplate.getDataSource().getConnection();
+
+			//以前查询方式，大数据量可能导致内存溢出。因为是一次性读入内存
+//			 stmt = conn.prepareStatement(sqlCmd);   
+			// 流式查询避免数据量过大导致OOM
+			stmt = conn.prepareStatement(sqlCmd, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+			stmt.setFetchSize(Integer.MIN_VALUE); 
+
+			rs = stmt.executeQuery();
+			try {
+				while (rs.next()) {
+					try {
+						System.out.println("====name:" + rs.getNString("name"));
+						System.out.println(
+								"one:" + rs.getString(1) + "two:" + rs.getString(2) + "thrid:" + rs.getString(3));
+					} catch (SQLException e) { // TODO Auto-generated catch
+												// block
+						e.printStackTrace();
+					}
+				}
+			} catch (SQLException e) { // TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (rs != null) {
+				rs.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
 	}
 
 }
