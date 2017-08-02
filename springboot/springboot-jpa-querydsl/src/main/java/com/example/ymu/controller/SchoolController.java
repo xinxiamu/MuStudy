@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.ymu.config.event.ServiceInfoUtil;
 import com.example.ymu.dao.SchoolDao;
 import com.example.ymu.service.TestService;
 
@@ -28,7 +29,7 @@ public class SchoolController {
 	
 	@RequestMapping("/getSchoolNameUseJdbc")
 	public String getSchoolNameUseJdbc(@RequestParam(required = true, defaultValue = "1") Long id) {
-		return schoolService.getSchoolNameUseJdbc(id);
+		return schoolService.getSchoolNameUseJdbc(id) + ServiceInfoUtil.getPort();
 	}
 	
 	@RequestMapping("/addBatchByJdbc")
