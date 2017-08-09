@@ -26,7 +26,7 @@ public class Main {
 		
 		void tes(String a);
 		
-		//在接口中实现方法
+		//在接口中实现方法，接口默认方法
 		default void hello() {
 			System.out.println("---hellow world");
 			welcom("啦啦啦");
