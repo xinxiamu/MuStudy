@@ -17,26 +17,24 @@ import org.junit.runner.RunWith;
 @SpringBootTest(classes = JaxbProcessorTest.class)
 public class JaxbProcessorTest {
 
-    @Autowired
-    private JaxbProcessor processor;
+	@Autowired
+	private JaxbProcessor processor;
 
-    @Test
-    public void ut1001_toXml()
-        throws Exception {
-        System.out.println( "processor: " + processor );
-        WechatMessage msg = new WechatMessage();
-        msg.setToUserName( "ToUserName" );
-        msg.setContent( "aaa" );
-        processor.toXml( msg );
-        System.out.println( "processor.toXml( msg ): " + processor.toXml( msg ) );
-    }
+	@Test
+	public void toXmlTest() throws Exception {
+		System.out.println("processor: " + processor);
+		WechatMessage msg = new WechatMessage();
+		msg.setToUserName("ToUserName");
+		msg.setContent("aaa");
+		String xmlStr = processor.toXml(msg);
+		System.out.println(xmlStr);
+	}
 
-    @Test
-    public void ut1002_toBean()
-        throws Exception {
-        String xml = "<xml><aaa>sdfsdfsd</aaa><ToUserName><![CDATA[gh_37b9b1054c21]]></ToUserName><FromUserName><![CDATA[oAZcVxDhjGIIyC_iJ23zHpoGsorE]]></FromUserName>"
-            + "<CreateTime>1498547497</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[테스트]]></Content><MsgId>6436212491545076337</MsgId></xml>";
-        WechatMessage message = processor.toBean( xml, WechatMessage.class );
-        System.out.println( "message: " + message );
-    }
+	@Test
+	public void toBeanTest() throws Exception {
+		String xml = "<xml><aaa>sdfsdfsd</aaa><ToUserName><![CDATA[mutou]]></ToUserName><FromUserName><![CDATA[yingying]]></FromUserName>"
+				+ "<CreateTime>1498547497</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[加油]]></Content><MsgId>6436212491545076337</MsgId></xml>";
+		WechatMessage message = processor.toBean(xml, WechatMessage.class);
+		System.out.println("message: " + message);
+	}
 }
