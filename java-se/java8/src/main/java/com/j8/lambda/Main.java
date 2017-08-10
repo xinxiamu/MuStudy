@@ -21,6 +21,7 @@ public class Main {
 		finalVar3.hello();
 	}
 	
+	//函数接口，函数接口只有一个抽象方法。
 	@FunctionalInterface
 	public interface FinalVar {
 		
