@@ -1,27 +1,25 @@
 server:
-  port: 8444
+  port: 8443
   ssl:
     key-store: classpath:mykeys.jks
     key-store-password: 701712
-    key-password: 701712 #https
-
----
+    key-password: 701712
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource ##指定使用的数据池类  
+    type: com.alibaba.druid.pool.DruidDataSource
     druid:
       testDb:
-        url: jdbc:mysql://localhost:3306/testDb?createDatabaseIfNotExist=true
+        url: jdbc:mysql://119.23.78.160:3306/testDb?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useFastDateParsing=false&pinGlobalTxToPhysicalConnection=true&serverTimezone=CST
         username: root
         password: 123456
         driver-class-name: com.mysql.jdbc.Driver
-        initialSize: 1 #初始化连接数
-        minIdle: 1 #最小连接数
-        maxActive: 50 #最大连接数
-        maxWait: 60000 #获取连接等待超时的时间
-        timeBetweenEvictionRunsMillis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-        minEvictableIdleTimeMillis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
-      filters: stat,wall,log4j2 # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙 
+        initialSize: 1
+        minIdle: 1
+        maxActive: 50
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+      filters: stat,wall,log4j2
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
       connection-properties: config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
@@ -29,11 +27,6 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-#          auto: none
-#           auto: create
-           auto: update
-
----           
+          auto: update
 logging:
   config: classpath:log4j2.xml
-  
