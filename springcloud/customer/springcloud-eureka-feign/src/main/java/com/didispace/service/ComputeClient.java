@@ -15,7 +15,7 @@ import com.didispace.hystrix.ComputeClientHystrix;
  * @author mutou
  *
  */
-@FeignClient(value="springcloud-compute-service",fallback = ComputeClientHystrix.class)	//绑定接口对应springcloud-compute-service服务
+@FeignClient(value="service-A",fallback = ComputeClientHystrix.class)	//绑定接口对应service-A服务
 public interface ComputeClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/add")
