@@ -1,7 +1,7 @@
 package com.j8.object;
 
 /**
- * 域的隐藏
+ * 域的隐藏。fiel的不能覆盖。
  * 
  * Within a class, a field that has the same name as a field in the superclass
  * hides the superclass’s field, even if their types are different. Within the
