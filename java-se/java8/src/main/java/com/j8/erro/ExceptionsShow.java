@@ -17,6 +17,14 @@ public class ExceptionsShow {
 		// test3(null);
 		System.out.println(test6());
 	}
+	
+	/**
+	 * 构造函数也可以抛出异常
+	 * @throws Exception
+	 */
+	public ExceptionsShow() throws Exception {
+		throw new NullPointerException();
+	}
 
 	// 在try块中定义的变量无法在catch中和finally中用。
 	public static void test1() {
