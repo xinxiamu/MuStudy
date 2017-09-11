@@ -5,13 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +27,9 @@ public class HelloController {
 	
 	@Value("${my.name}")
 	private String myName;
+	
+	@Value("${server.port}")
+	private String port;
 
 	@RequestMapping("/")
 	public User user() {
@@ -42,7 +41,7 @@ public class HelloController {
 
 	@RequestMapping("/hello")
 	public String index(HttpServletRequest request) throws IOException {
-		return "Hello World";
+		return "Hello World:" + port;
 	}
 	
 	@RequestMapping("/testResourceFileLoad")
