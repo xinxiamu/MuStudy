@@ -1,6 +1,5 @@
 package com.j8.io.nio;
 
-import java.nio.Buffer;
 import java.nio.CharBuffer;
 
 /**
@@ -10,7 +9,7 @@ import java.nio.CharBuffer;
  */
 public class BufferFillDrain {
 
-	public static void main(String[] args) {Buffer
+	public static void main(String[] args) {
 		CharBuffer buffer = CharBuffer.allocate(100); //分配新的缓冲区,容量100
 		while (fillBuffer(buffer)) {
 			buffer.flip();
