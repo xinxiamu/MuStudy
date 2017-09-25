@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.didispace.domain.User;
+import com.didispace.version.ApiVersion;
 
 /**
  *
@@ -23,6 +24,7 @@ import com.didispace.domain.User;
  *
  */
 @RestController
+@RequestMapping("/{version}/")
 public class HelloController {
 	
 	@Value("${my.name}")
@@ -38,11 +40,34 @@ public class HelloController {
 		user.setName(myName);
 		return user;
 	}
+	
+	//---------------- api版本管理 demo start ------------------//
 
-	@RequestMapping("/hello")
-	public String index(HttpServletRequest request) throws IOException {
-		return "Hello World:" + port;
-	}
+	@RequestMapping("hello/")
+    @ApiVersion(1)
+    public String hello(HttpServletRequest request){
+        System.out.println("haha1..........");
+        
+        return "hello";
+    }
+    
+    @RequestMapping("hello/")
+    @ApiVersion(2)
+    public String hello2(HttpServletRequest request){
+        System.out.println("haha2.........");
+        
+        return "hello";
+    }
+    
+    @RequestMapping("hello/")
+    @ApiVersion(5)
+    public String hello5(HttpServletRequest request){
+        System.out.println("haha5.........");
+        
+        return "hello";
+    }
+    
+  //---------------- api版本管理 demo end ------------------//
 	
 	@RequestMapping("/testResourceFileLoad")
 	public String testResourceFileLoad() throws FileNotFoundException {
