@@ -10,7 +10,7 @@ public class CustomRequestMappingHandlerMapping extends RequestMappingHandlerMap
 
     @Override
     protected RequestCondition<ApiVesrsionCondition> getCustomTypeCondition(Class<?> handlerType) {
-        ApiVersion apiVersion = AnnotationUtils.findAnnotation(handlerType, ApiVersion.class);
+        ApiVersion apiVersion = AnnotationUtils.findAnnotation(handlerType, ApiVersion.class); 
         return createCondition(apiVersion);
     }
 

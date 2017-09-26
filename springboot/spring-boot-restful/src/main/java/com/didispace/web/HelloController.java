@@ -8,26 +8,18 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.didispace.domain.User;
 import com.didispace.version.ApiVersion;
 
-/**
- *
- * @author 程序猿DD
- * @version 1.0.0
- * @blog http://blog.didispace.com
- *
- */
 @RestController
 @RequestMapping("/{version}/")
 public class HelloController {
 	
-	@Value("${my.name}")
+	/*@Value("${my.name}")
 	private String myName;
 	
 	@Value("${server.port}")
@@ -39,12 +31,13 @@ public class HelloController {
 		user.setAge(12);
 		user.setName(myName);
 		return user;
-	}
+	}*/
 	
 	//---------------- api版本管理 demo start ------------------//
 
 	@RequestMapping("hello/")
     @ApiVersion(1)
+	@ResponseBody
     public String hello(HttpServletRequest request){
         System.out.println("haha1..........");
         
@@ -53,6 +46,7 @@ public class HelloController {
     
     @RequestMapping("hello/")
     @ApiVersion(2)
+    @ResponseBody
     public String hello2(HttpServletRequest request){
         System.out.println("haha2.........");
         
@@ -60,6 +54,7 @@ public class HelloController {
     }
     
     @RequestMapping("hello/")
+    @ResponseBody
     @ApiVersion(5)
     public String hello5(HttpServletRequest request){
         System.out.println("haha5.........");

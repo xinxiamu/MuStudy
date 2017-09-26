@@ -24,8 +24,12 @@ public class ApiVesrsionCondition implements RequestCondition<ApiVesrsionConditi
     }
 
     public ApiVesrsionCondition getMatchingCondition(HttpServletRequest request) {
-    	String pathInfo = request.getPathInfo();
-        Matcher m = VERSION_PREFIX_PATTERN.matcher(pathInfo);
+//    	String pathInfo = request.getPathInfo();//这个方法获取是null，报错。
+    	String path = request.getServletPath(); 
+    	if (path == null) {
+			return null;
+		}
+        Matcher m = VERSION_PREFIX_PATTERN.matcher(path);
         if(m.find()){
             Integer version = Integer.valueOf(m.group(1));
             if(version >= this.apiVersion) // 如果请求的版本号大于配置版本号， 则满足
