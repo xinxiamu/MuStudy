@@ -4,6 +4,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * java8 date，time
+ * @author zmt
+ *
+ */
 public final class DateUtils {
 
 	final static class FormatterStyle {
