@@ -1,6 +1,7 @@
 package com.j8.tmp;
 
 import java.util.Date;
+import java.util.List;
 
 public class Test1 {
 
@@ -25,14 +26,15 @@ public class Test1 {
 		//
 		// char f = 'c';
 
-		long t1 = System.currentTimeMillis();
-		Date date1 = new Date(t1);
-		System.out.println("---date1:" + date1);
-		sum(9000000000l);
-		long t2 = System.currentTimeMillis();
-		Date date2 = new Date(t2);
-		System.out.println("---date1:" + date2);
-		System.out.println("-----time:" + (t2-t1));
+//		long t1 = System.currentTimeMillis();
+//		Date date1 = new Date(t1);
+//		System.out.println("---date1:" + date1);
+//		sum(9000000000l);
+//		long t2 = System.currentTimeMillis();
+//		Date date2 = new Date(t2);
+//		System.out.println("---date1:" + date2);
+//		System.out.println("-----time:" + (t2-t1));
+		
 	}
 
 }

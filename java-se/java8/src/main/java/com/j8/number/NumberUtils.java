@@ -18,4 +18,11 @@ public class NumberUtils {
 		String output = myFormatter.format(value);
 		return output;
 	}
+	
+	public static void main(String[] args) {
+		float a = 0.242356f;
+		String str = customFormat("###.##", a);
+		System.out.println(str);
+
+	}
 }
