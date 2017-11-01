@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import ch.qos.logback.core.util.SystemInfo;
-
 import com.mu.mvc.RequestUtil;
 import com.mu.utils.logger.Log;
 
