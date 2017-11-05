@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	var x float64 = 3.4
+	var x float64 = 3.43
 	v := reflect.ValueOf(x)
 	fmt.Println("type:", v.Type())
 	fmt.Println("kind is float64:", v.Kind() == reflect.Float64)
