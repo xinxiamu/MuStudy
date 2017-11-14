@@ -1,7 +1,0 @@
-/**
- * 
- */
-
-function login(){
-	alert("-----------bbbb");
-}
