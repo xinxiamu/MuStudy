@@ -886,7 +886,7 @@ public abstract class Strman {
      * Alias to String split function. Defined only for completeness.
      *
      * @param value The input String
-     * @param regex The delimiting regular expression
+     * @param regex The delimiting regex expression
      * @return String Array
      */
     public static String[] split(final String value, final String regex) {

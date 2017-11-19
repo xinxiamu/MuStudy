@@ -174,7 +174,7 @@ jaaulde.utils.cookies = ( function()
 	 * filter - get array of cookies whose names match the provided RegExp
 	 *
 	 * @access public
-	 * @paramater Object RegExp - The regular expression to match against cookie names
+	 * @paramater Object RegExp - The regex expression to match against cookie names
 	 * @return Mixed - Object:hash of cookies whose names match the RegExp
 	 */
 	constructor.prototype.filter = function( cookieNameRegExp )

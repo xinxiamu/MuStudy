@@ -368,7 +368,7 @@ public class StrTokenizer implements ListIterator, Cloneable {
                     continue;
                 }
                 
-                // copy regular character from inside quotes
+                // copy regex character from inside quotes
                 workArea.append(chars[pos++]);
                 trimStart = workArea.size();
                 
@@ -409,7 +409,7 @@ public class StrTokenizer implements ListIterator, Cloneable {
                     continue;
                 }
                 
-                // copy regular character from outside quotes
+                // copy regex character from outside quotes
                 workArea.append(chars[pos++]);
                 trimStart = workArea.size();
             }

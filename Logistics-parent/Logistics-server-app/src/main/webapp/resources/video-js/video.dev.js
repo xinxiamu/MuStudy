@@ -5879,7 +5879,7 @@ vjs.PosterImage.prototype.src = function(url){
   // setter
   // To ensure the poster image resizes while maintaining its original aspect
   // ratio, use a div with `background-size` when available. For browsers that
-  // do not support `background-size` (e.g. IE8), fall back on using a regular
+  // do not support `background-size` (e.g. IE8), fall back on using a regex
   // img element.
   if (_backgroundSizeSupported) {
     el.style.backgroundImage = 'url("' + url + '")';

@@ -2,7 +2,7 @@
 // (c) 2007-2012 Steven Levithan
 // MIT License
 // <http://xregexp.com>
-// Provides an augmented, extensible, cross-browser implementation of regular expressions,
+// Provides an augmented, extensible, cross-browser implementation of regex expressions,
 // including support for additional syntax, flags, and methods
 
 var XRegExp;
@@ -20,7 +20,7 @@ if (XRegExp) {
     //---------------------------------
 
     // Accepts a pattern and flags; returns a new, extended `RegExp` object. Differs from a native
-    // regular expression in that additional syntax and flags are supported and cross-browser
+    // regex expression in that additional syntax and flags are supported and cross-browser
     // syntax inconsistencies are ameliorated. `XRegExp(/regex/)` clones an existing regex and
     // converts to type XRegExp
     XRegExp = function (pattern, flags) {
@@ -131,7 +131,7 @@ if (XRegExp) {
 
     // Lets you extend or change XRegExp syntax and create custom flags. This is used internally by
     // the XRegExp library and can be used to create XRegExp plugins. This function is intended for
-    // users with advanced knowledge of JavaScript's regular expression syntax and behavior. It can
+    // users with advanced knowledge of JavaScript's regex expression syntax and behavior. It can
     // be disabled by `XRegExp.freezeTokens`
     XRegExp.addToken = function (regex, handler, scope, trigger) {
         tokens.push({
@@ -562,7 +562,7 @@ if (XRegExp) {
     //  Built-in tokens
     //---------------------------------
 
-    // Augment XRegExp's regular expression syntax and flags. Note that when adding tokens, the
+    // Augment XRegExp's regex expression syntax and flags. Note that when adding tokens, the
     // third (`scope`) argument defaults to `XRegExp.OUTSIDE_CLASS`
 
     // Comment pattern: (?# )
@@ -763,7 +763,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         /** This object is populated by user included external brush files. */
         brushes : {},
 
-        /** Common regular expressions. */
+        /** Common regex expressions. */
         regexLib : {
             multiLineCComments			: /\/\*[\s\S]*?\*\//gm,
             singleLineCComments			: /\/\/.*$/gm,
@@ -812,7 +812,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
             },
 
             /**
-             * Generates HTML markup for a regular button in the toolbar.
+             * Generates HTML markup for a regex button in the toolbar.
              * @param {Highlighter} highlighter Highlighter instance.
              * @param {String} commandName		Command name that would be executed.
              * @param {String} label			Label text to display.
@@ -1654,10 +1654,10 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
     };
 
     /**
-     * Executes given regular expression on provided code and returns all
+     * Executes given regex expression on provided code and returns all
      * matches that are found.
      *
-     * @param {String} code    Code to execute regular expression on.
+     * @param {String} code    Code to execute regex expression on.
      * @param {Object} regex   Regular expression item info from <code>regexList</code> collection.
      * @return {Array}         Returns a list of Match objects.
      */
@@ -1957,9 +1957,9 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         },
 
         /**
-         * Applies all regular expression to the code and stores all found
+         * Applies all regex expression to the code and stores all found
          * matches in the `this.matches` array.
-         * @param {Array} regexList		List of regular expressions.
+         * @param {Array} regexList		List of regex expressions.
          * @param {String} code			Source code.
          * @return {Array}				Returns list of matches.
          */
@@ -2336,9 +2336,9 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
         },
 
         /**
-         * Converts space separated list of keywords into a regular expression string.
+         * Converts space separated list of keywords into a regex expression string.
          * @param {String} str    Space separated keywords.
-         * @return {String}       Returns regular expression string.
+         * @return {String}       Returns regex expression string.
          */
         getKeywords: function(str)
         {
@@ -2352,7 +2352,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
 
         /**
          * Makes a brush compatible with the `html-script` functionality.
-         * @param {Object} regexGroup Object containing `left` and `right` regular expressions.
+         * @param {Object} regexGroup Object containing `left` and `right` regex expressions.
          */
         forHtmlScript: function(regexGroup)
         {

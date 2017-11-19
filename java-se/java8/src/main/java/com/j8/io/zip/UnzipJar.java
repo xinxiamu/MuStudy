@@ -14,12 +14,6 @@ public class UnzipJar {
 		unzipJar("./src/dest", "./src/a.jar");
 	}
  
-	/**
-	 * 解压.jar打包文件。
-	 * @param destinationDir 解压后的目的路径
-	 * @param jarPath	需要解压的.jar文件路径。
-	 * @throws IOException
-	 */
 	public static void unzipJar(String destinationDir, String jarPath) throws IOException {
 		File file = new File(jarPath);
 		JarFile jar = new JarFile(file);

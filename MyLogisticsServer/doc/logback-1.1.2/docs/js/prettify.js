@@ -175,11 +175,11 @@ window['_pr_isIE6'] = function () {
    */
   var PR_NOCODE = 'nocode';
 
-  /** A set of tokens that can precede a regular expression literal in
+  /** A set of tokens that can precede a regex expression literal in
     * javascript.
     * http://www.mozilla.org/js/language/js20/rationale/syntax.html has the full
     * list, but I've removed ones that might be problematic when seen in
-    * languages that don't support regular expression literals.
+    * languages that don't support regex expression literals.
     *
     * <p>Specifically, I've removed any keywords that can't precede a regexp
     * literal in a syntactically legal javascript program, and I've removed the
@@ -211,8 +211,8 @@ window['_pr_isIE6'] = function () {
       }
       pattern += ')\\s*';  // matches at end, and matches empty string
       return pattern;
-      // CAVEAT: this does not properly handle the case where a regular
-      // expression immediately follows another since a regular expression may
+      // CAVEAT: this does not properly handle the case where a regex
+      // expression immediately follows another since a regex expression may
       // have flags for case-sensitivity and the like.  Having regexp tokens
       // adjacent is not valid in any language I'm aware of, so I'm punting.
       // TODO: maybe style special characters inside a regexp as punctuation.
@@ -986,7 +986,7 @@ window['_pr_isIE6'] = function () {
     }
     if (options['regexLiterals']) {
       var REGEX_LITERAL = (
-          // A regular expression literal starts with a slash that is
+          // A regex expression literal starts with a slash that is
           // not followed by * or / so that it is not confused with
           // comments.
           '/(?=[^/*])'

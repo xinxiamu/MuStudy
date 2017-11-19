@@ -5462,7 +5462,7 @@ var VMLRendererExtension = { // inherit SVGRenderer
 	},
 
 	/**
-	 * VML override to create a regular HTML image
+	 * VML override to create a regex HTML image
 	 * @param {String} src
 	 * @param {Number} x
 	 * @param {Number} y
@@ -10526,7 +10526,7 @@ Chart.prototype = {
 	 */
 	init: function (userOptions, callback) {
 
-		// Handle regular options
+		// Handle regex options
 		var options,
 			seriesOptions = userOptions.series; // skip merging data points to increase performance
 

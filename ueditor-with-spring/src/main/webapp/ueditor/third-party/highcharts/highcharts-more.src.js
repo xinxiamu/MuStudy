@@ -2258,7 +2258,7 @@ function polarAnimate(proceed, init) {
 	} 
 }
 
-// Define the animate method for both regular series and column series and their derivatives
+// Define the animate method for both regex series and column series and their derivatives
 wrap(seriesProto, 'animate', polarAnimate);
 wrap(colProto, 'animate', polarAnimate);
 
