@@ -1,6 +1,7 @@
 package com.ymu.pattern.singleton;
 
 public class SingletonClass {
+
 	private static class SingletonClassInstance {
 		private static final SingletonClass instance = new SingletonClass();
 	}
