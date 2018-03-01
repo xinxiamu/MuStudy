@@ -23,7 +23,8 @@
 
     <modules>
         <module>java-se/java8</module>
-        <module>jf-framework</module>
+        <!--<module>jf-framework</module>-->
+        <module>jwt/auth0-spring-mvc-sample/01-Login</module>
     </modules>
 
     <repositories>
