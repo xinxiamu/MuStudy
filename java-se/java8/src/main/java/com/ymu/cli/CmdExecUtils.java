@@ -24,7 +24,9 @@ public final class CmdExecUtils {
 //        boolean flg = execCommond("/home/mutian/dev/tools/wkhtmltox/bin/wkhtmltopdf","https://www.jianshu.com/p/559c594678b6", "/home/mutian/cba.pdf");
 //        System.out.println("执行结果：" + flg);
 
-        boolean flg = execCommond("ping www.baidu.com");
+//        boolean flg = execCommond("ping www.baidu.com");
+
+        boolean flg = execCommond("/home/mutian/dev/tools/wkhtmltox/bin/wkhtmltopdf","/home/mutian/html/Purchase-Order.html" ,"/home/mutian/Desktop/adf.pdf");
         System.out.println("执行结果：" + flg);
     }
 
