@@ -9,6 +9,12 @@ public final class zipUtils {
 
     private  zipUtils(){}
 
+    /**
+     * 压缩文件。
+     * @param needZipFolderPath
+     * @param zipNamePath
+     * @return
+     */
     public static boolean createZip(String needZipFolderPath,String zipNamePath) {
         try {
             ZipFile zipFile = new ZipFile(zipNamePath);
