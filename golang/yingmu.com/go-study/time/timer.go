@@ -1,4 +1,4 @@
-//简单定时器
+//简单定时器,心跳程序
 //定时执行任务
 //解析ini文件
 //执行脚本命令
@@ -15,7 +15,7 @@ import (
 var config *goconfig.ConfigFile
 
 func init() {
-	//放在
+	//放在可执行文件timer的同一个目录下
 	path := "./config.ini"
 	conf, err := goconfig.LoadConfigFile(path)
 	if err != nil {
@@ -25,12 +25,13 @@ func init() {
 }
 
 func main() {
-	t := time.NewTicker(1 * time.Second)
+	t := time.NewTicker(1 * time.Second) //1秒钟执行一次
 	for {
 		select {
 		case <-t.C:
+			//fmt.Println(">>>:" + time.Now().String())
 			run()
-		}
+ 		}
 	}
 }
 
@@ -55,10 +56,10 @@ func cmd()  {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("Waiting for command to finish...")
+	fmt.Println("执行中……")
 	err = cmd.Wait()
 	if err != nil {
-		fmt.Printf("Command finished with error: %v", err)
+		fmt.Printf("执行错误: %v", err)
 	}
 	fmt.Println(out.String())
 }
