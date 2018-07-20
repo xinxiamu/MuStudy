@@ -7,22 +7,27 @@ import (
 	"os/exec"
 	"bytes"
 	"fmt"
+	"github.com/unknwon/goconfig"
 	"time"
 	"net/http"
 	"log"
-	"github.com/unknwon/goconfig"
 )
 
 var config *goconfig.ConfigFile
 
 func init() {
 	fmt.Println()
+	//path := "/home/mutian/dev/go/work/src/yingmu.com/go-study/web/svn-look-web/config.ini"
 	path := "./config.ini"
 	conf, err := goconfig.LoadConfigFile(path)
 	if err != nil {
 		fmt.Println(err)
 	}
 	config = conf
+}
+
+func init() {
+	go svnupdate()
 }
 
 func main() {
@@ -39,14 +44,17 @@ func main() {
 		log.Fatal("ListenAndServe: ", err)
 	}
 
-	//每隔时间执行
+}
+
+//心跳执行
+func svnupdate()  {
 	//timeDiff,_ := config.Int("timer","timeDiff")
-	t := time.NewTicker(1 * time.Second) //1秒钟执行一次
+	t := time.NewTicker(10 * time.Minute) //10分钟
 	for {
 		select {
 		case <-t.C:
-			fmt.Println(">>>:" + time.Now().String())
-			//cmd()
+			fmt.Println(">>>执行时间:" + time.Now().String())
+			cmd()
 		}
 	}
 
@@ -55,6 +63,7 @@ func main() {
 func cmd()  {
 	scriptBinPath, _ := config.GetValue("cmd", "scriptBinPath")
 	cmd := exec.Command(scriptBinPath)
+	//cmd := exec.Command("/home/mutian/dev/go/work/src/yingmu.com/go-study/web/svn-look-web/svn-update.sh")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Start()
@@ -67,7 +76,6 @@ func cmd()  {
 		fmt.Printf("执行错误: %v", err)
 	}
 	fmt.Println(out.String())
-	fmt.Println("执行完成!!!!!")
 }
 
 
