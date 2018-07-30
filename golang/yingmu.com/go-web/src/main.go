@@ -83,7 +83,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 const (
 	TemplateDir = "/home/mutian/dev/go/work/src/yingmu.com/go-web/view/"
-	StaticDir   = "/server/static/wang/"
+	StaticDir   = "/media/mutian/Development/xcjr/source_code/DAPlatform/DAPlatform-web/com.xcsqjr.web.www/src/main/webapp"
 )
 
 func main() {
